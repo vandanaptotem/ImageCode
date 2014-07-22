@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails TimelineNoir: development" uuid="ea8d8bfc-a6b0-4f2a-a1a2-2b3bd4c7c6b6">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails TimelineNoir: test" uuid="c98d260e-9aa2-4cc3-895c-08dfdd78cb0c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

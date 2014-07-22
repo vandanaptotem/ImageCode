@@ -1,0 +1,505 @@
+<style>
+    .prev_comments {
+        margin-top: 1%;
+        background-color: #f5f5f5;
+    }
+
+    /*.prev_comm{*/
+    /**/
+    /*}*/
+
+    .prev_comm img {
+        width: 100%
+    }
+
+    .given_comment {
+        background: white;
+        color: #000000;
+        font-size: 1.2em;
+        padding: 2%;
+    }
+
+    .given_pic {
+        padding: 1%;
+    }
+
+    #u_0_c{
+        font-size: 1.5em;
+        width:100%;
+    }
+
+    #allist {
+        background-color: rgba(0, 0, 0, 0.70);
+        list-style: none;
+        padding: 2%;
+        max-height: 450px;
+        min-height: 450px;
+        overflow: hidden;
+        margin-top: 2%;
+    }
+</style>
+<div class="row">
+  <div class="col-lg-2" id="aside">
+    <div id="asideBack"></div>
+    <div id="asideFront">
+      <%= image_tag "logo.png", id: "logo" %>
+      <ul class="menu">
+        <li class="crimeSceneBtn"><%= image_tag "crimescene.jpg", class: "menuBtn", title: "Explore the Crime Scene" %></li>
+        <li class="charactersBtn"><%= image_tag "characters.jpg", class: "menuBtn", title: "Interview the Suspects" %></li>
+        <li class="caseBtn"><%= image_tag "brief.jpg", class: "menuBtn", title: "Solve the Case" %></li>
+      </ul>
+      <%= image_tag "casefile.png", style: "position:absolute; left:-20px;bottom:-280px; width:120%; display:none;", id: "caseFile" %>
+    </div>
+
+  </div>
+  <div class="col-lg-10">
+
+    <div class="row" id="contentRow">
+      <div id="contentPanel">
+        <div id="panelBack"></div>
+        <div id="panelFront">
+          <div id="panelTitle"></div>
+          <div id="caseName" class="casePanel">
+            <div class="row">
+              <%= @case.name %>
+              <!--The Case of the Late Show Host-->
+              <%= image_tag "crimeTape.png" %>
+            </div>
+            <div class="row">
+              <div class="col-lg-6"></div>
+              <div class="col-lg-6" id="briefing">
+                <%#= @case.description%>
+                <%= raw @case.description %>
+                <!--TV Presenter Praveen Singh had come a long way.-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--From the early days of being a lowly intern at a minor channel, he had grown to be the face to watch in-->
+                <!--news.-->
+                <!--His hard hitting interview style was loved or hated, but never ignored.-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--As he wrapped up his show for the night, he smiled to himself with smug satisfaction.-->
+                <!--He had just finished destroying the credibility of yet another rookie politician trying to make it big-->
+                <!--with their family name.-->
+                <!--'Like stealing candy from a baby', he thought as he walked off the set...-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--An hour later, he was found lying dead in his makeup room....-->
+                <!--<br/>-->
+                <!--<br/>-->
+              </div>
+            </div>
+          </div>
+          <div id="crimeScene" class="casePanel">
+            <div class="row">
+              <div class="col-lg-5 crimeSceneOverlay lvl1">
+                <%= image_tag @crime_scene.image.url %>
+                <h4 class="clue"><%= @crime_scene.comments %>.</h4>
+              </div>
+              <div class="col-lg-3 crimeSceneOverlay lvl2">
+              </div>
+              <div class="col-lg-3 crimeSceneOverlay lvl3">
+              </div>
+            </div>
+          </div>
+          <div id="characters" class="casePanel">
+            <div class="row" id="charMenu"></div>
+            <div id="suspectPanel">
+              <div class="row">
+                <div class="col-lg-4">
+                  <!--<img src="#" id="suspectPhoto"/>-->
+
+                </div>
+                <div class="col-lg-7">
+                  <div class="row">
+                    <div id="suspectName">
+
+                    </div>
+                    <%= image_tag "interrogate.png", id: "interrogateEm", style: "position:absolute; width:20%;right:0;top:30px;cursor:pointer;", title: "Interrogate the Person" %>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-7" id="suspectProfile"></div>
+                    <div class="col-lg-5" id="suspectReaction"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="comments" class="casePanel">
+            <!--<div class="row">-->
+            <!--<textarea id="u_0_c" cols="80" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Add a comment..." required="1" title="Add a comment..." class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>-->
+            <!--<label for="u_0_2" class="fbCommentButton uiButton uiButtonConfirm">-->
+
+            <!--</label>-->
+            <!--</div>-->
+            <div class="row">
+              <div class="col-lg-7 col-lg-offset-7" style="color: white">
+                <h1>Who do you think the killer is?</h1>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1">
+                <ul id="allist" class="UFIList">
+                  <li>
+                    <div class="row">
+                      <div class="col-lg-10">
+                        <textarea id="u_0_c" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Add a comment..." required="1" title="Add a comment..." class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>
+                      </div>
+                      <div class="col-lg-1" style="margin-left: 20px;">
+                        <input type="submit" id="u_0_2" value="Comment" class="btn btn-lrg btn-info">
+                      </div>
+                    </div>
+                    <br/>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+    /*-----------------------------------------*/
+    /* Case Input Structures */
+    /*-----------------------------------------*/
+
+    //    var lvl1Nodes = ["50,280,40,50", "125,375,120,120", "300,280,120,120"];
+    var lvl1Nodes = gon.cord;
+    //    var lvl1Data = ["There is something clogging the drain of the sink...||finger.jpg|| The ring finger of the victim. ", "This was by far one of the most brutal murders I have ever come across...||deadbody.jpg || The victim died by choking on a microphone. I should have a closer look.", "The desk has a myriad set of items. Some of them are interesting.||dresser.jpg || Chocolates? Love?"];
+    var lvl1Data = gon.stmt;
+    // console.log("lvl1Data :- " + lvl1Data);
+    //    var lvl2Nodes = [
+    //        ["190,60,65,65"],
+    //        ["150,60,60,160", "50,200,60,60"],
+    //        ["15,100,80,160", "40,40,70,70", "125,50,115,160"]
+    //    ];
+    var lvl2Nodes = gon.childcordinate;
+    //    var lvl2Data = [
+    //        ["It looks like a very clean cut, done with something very sharp||ring.jpg||A gold wedding ring morbidly clings to the finger "],
+    //        ["The murder weapon is ironic||microphone.jpg||The way he was killed suggests a fair amount of anger or strength. Maybe both.", "The guy was a lover of tattoos||tattoo.jpg || A strange choice for a tattoo."],
+    //        ["The script of the interview||script.jpg||Man, he really did a number on his interview guest", "An empty box of chocolates with a scribbled card||chocolates.jpg || 'To having found our day of love.' Signed by his wife.", "Mostly office calls. But the last SMS is interesting||sms.jpg|| I know what you are planning. Don't be a fool. Sent by Jamshed Khan."]
+    //    ];
+
+    var lvl2Data =gon.childrendata;
+    //    var suspectNames = ['Praveen Singh, Victim', 'Gautam Ram, Politician', 'Leena Choksi, The Show\'s Producer', 'Jamshed Khan, The Channel\'s PR Manager', 'Shambhu Mastan, Gautam Ram\'s Bodyguard', 'Rupali Jain, The Show\'s Co-anchor', 'Ragini Singh, The Victim\'s Wife'];
+    var suspectNames = gon.suspects_name
+    //    var suspectPhotos = ['/assets/praveen.jpg', '/assets/gautam.jpg', '/assets/leena.jpg', '/assets/jamshed.jpg', '/assets/shambhu.jpg', '/assets/rupali.jpg', '/assets/ragini.jpg'];
+    var suspectPhotos = gon.images
+    //    var suspectBios = ['Praveen Singh was a brash but successful young man. He was reputed to have antagonized several important and dangerous people over the course of his career. Nevertheless, he was widely admired for bringing forth the voice of the people and asking questions which the nation wanted to know about.',
+    //        'Gautam Ram is the scion of the largest political family of the city. With very little to his credit besides the name, he was massacred in his interview with the victim earlier that evening. With elections around the corner, he would definitely be smarting from the incident. But would he be vicious enough to kill over it?',
+    //        'Leena Choksi is the one credited with Praveen Singh\'s meteoric rise. A critically acclaimed producer, she was heard having an argument with the victim earlier that evening on the plan for the interview. Is there any reason to suspect her?',
+    //        'Jamshed Khan is a ruthless professional who is credited with raising the victim\'s channel to stratospheric heights. A confirmed bachelor (some say homosexual), he has little in life but his work. Is it a stretch to wonder if he could be cutthroat enough to try murder as a marketing gimmick?',
+    //        'Shambhu Mastan is a less than literate thug from Gautam Ram\'s constituency. Having been veritably brought up by the Ram family, he is the perfect bodyguard for the young politician. Could he have done the deed at Gautam Ram\'s behest or out of his own volition?',
+    //        'Rupali Jain was a recent transfer from a competitor who Praveen had poached at a high cost. She apparently used to have a relationship with Praveen in their struggling days and continues to be single. The murder has all the signs of a crime of passion, so she is definitely topping my suspect list.',
+    //        'Ragini Singh and Praveen had had an arranged marriage two years ago. Hailing from a rich but conservative family, she was an avid socialite with a tendency towards promiscuity. If I suspect Rupali, for the same reason I cannot rule out Ragini, can I? ' ];
+    var suspectBios =gon.sb
+    //    var suspectReactions = ['',
+    //        'You are asking the wrong questions. Are the youth empowered? Are the women empowered? Should I look right for information? Those are the fundamental questions...',
+    //        'I don\'t know when Gautam Ram left, but I saw his bodyguard floating about Praveen\'s room. I had gone to check but it was locked...',
+    //        'I had warned him. He was an arrogant, spineless brat who clearly went too far...anyway, I need to go and tweet about all that has happened here. The nation wants to know.',
+    //        'I eat salt off my bossji. I do anything for him. But no, I not kill the @#$#@!%. I saw one woman go to his room when I was walking there.',
+    //        'We never had a relationship. He treated me like his sister. By the way, he hated his wife and his marriage. He even told me he was going to divorce her. Did you know that? ',
+    //        'Two years of living in a loveless marriage...and I mean completely loveless...do you know what it does to a woman? And then a few weeks back he changed. And now... '
+    //    ];
+    var suspectReactions =  gon.sr;
+
+    /*-----------------------------------------*/
+    /* Case Variables Initializer*/
+    /*-----------------------------------------*/
+
+    var crimeSceneInit = false;
+    var suspectListInit = false;
+
+    var overlayLvl1 = [];
+    var srcLvl2 = [];
+    var overlayLvl2 = [
+        [],
+        [],
+        []
+    ];
+    var srcLvl3 = [
+        [],
+        [],
+        []
+    ];
+
+    function createCrimeScene() {
+        var coordsLvl1 = [];
+        var contentLvl1 = [];
+        var coordsLvl2 = [
+            [],
+            [],
+            []
+        ];
+        var contentLvl2 = [
+            [],
+            [],
+            []
+        ];
+        for (var nodeLvl1 = 0; nodeLvl1 < lvl1Nodes.length; nodeLvl1++) {
+            coordsLvl1[nodeLvl1] = lvl1Nodes[nodeLvl1].split(',');
+            contentLvl1[nodeLvl1] = lvl1Data[nodeLvl1].split('||');
+            // var str=contentLvl1[nodeLvl1].toString().split(",")[1];
+            //console.log("contentLvl1[nodeLvl1] :- " + contentLvl1[nodeLvl1].toString().split(",")[1]);
+            overlayLvl1[nodeLvl1] = '<a href="#" title="' + contentLvl1[nodeLvl1][0] + '" class="overlayPoint" id="node1' + nodeLvl1 + '" style="left:' + coordsLvl1[nodeLvl1][0] + 'px;top:' + coordsLvl1[nodeLvl1][1] + 'px;width:' + coordsLvl1[nodeLvl1][2] + 'px;height:' + coordsLvl1[nodeLvl1][3] + 'px;"></a>';
+            srcLvl2[nodeLvl1] = '<img src="'+ contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
+            for (var nodeLvl2 = 0; nodeLvl2 < lvl2Nodes[nodeLvl1].length; nodeLvl2++) {
+                coordsLvl2[nodeLvl1][nodeLvl2] = lvl2Nodes[nodeLvl1][nodeLvl2].split(',');
+                contentLvl2[nodeLvl1][nodeLvl2] = lvl2Data[nodeLvl1][nodeLvl2].split('||');
+                overlayLvl2[nodeLvl1][nodeLvl2] = '<a href="#" title="' + contentLvl2[nodeLvl1][nodeLvl2][0] + '" class="overlayPoint" id="node2_' + nodeLvl1 + "_" + nodeLvl2 + '" style="left:' + coordsLvl2[nodeLvl1][nodeLvl2][0] + 'px;top:' + coordsLvl2[nodeLvl1][nodeLvl2][1] + 'px;width:' + coordsLvl2[nodeLvl1][nodeLvl2][2] + 'px;height:' + coordsLvl2[nodeLvl1][nodeLvl2][3] + 'px;"></a>';
+                srcLvl3[nodeLvl1][nodeLvl2] = '<img src="'+contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
+            }
+        }
+    }
+
+    function overlayLvl2Bindings() {
+        $("[id^=node1]").on('click', function () {
+            var branch = parseInt($(this).attr("id").split("node1")[1]);
+            var $lvl2 = $('.crimeSceneOverlay.lvl2');
+            var $lvl3 = $('.crimeSceneOverlay.lvl3');
+            $lvl2.hide().empty();
+            $lvl3.hide().empty();
+            $lvl2.append(srcLvl2[branch]).fadeIn('500');
+            overlayLvl2[branch].forEach(function (elm) {
+                $lvl2.append(elm);
+                $('[title!=""]').qtip({
+                    position: {
+                        my: 'bottom left',  // Position my top left...
+                        at: 'top right', // at the bottom right of...
+                        target: 'mouse' // my target
+                    }
+                });
+            });
+            overlayLvl3Bindings();
+        });
+    }
+    function overlayLvl3Bindings() {
+        $("[id^=node2]").on('click', function () {
+            var root = parseInt($(this).attr("id").split("_")[1]);
+            var branch = parseInt($(this).attr("id").split("_")[2]);
+            var $lvl3 = $('.crimeSceneOverlay.lvl3');
+            $lvl3.hide().empty();
+            $lvl3.append(srcLvl3[root][branch]).fadeIn('500');
+        });
+    }
+
+    function buildSuspects() {
+        if (!suspectListInit) {
+            $('#charMenu').append('<div class="col-lg-' + (11 - suspectPhotos.length) + '"></div>');
+            for (i = 0; i < suspectPhotos.length; i++) {
+                $('#charMenu').append('<div class="col-lg-1 suspectThumb"><img src="' + suspectPhotos[i] + '" id="suspect' + i + '"/></div>');
+            }
+            suspectListInit = true;
+        }
+        $('.suspectThumb img').on('click', function () {
+            var index = $(this).attr("id").split('suspect')[1];
+            $('#suspectPhoto').attr('src', suspectPhotos[index]);
+            $('#suspectName').html(suspectNames[index].split(',')[0] + "<br/><span id='suspectContext'>" + suspectNames[index].split(',')[1] + "</span>");
+            $('#suspectProfile').html(suspectBios[index]);
+            $('#suspectReaction').html(suspectReactions[index]).hide();
+            if (index == 0) {
+                $('#interrogateEm').fadeOut();
+            } else {
+                $('#interrogateEm').fadeIn().qtip({
+                    position: {
+                        my: 'bottom left',  // Position my top left...
+                        at: 'top right', // at the bottom right of...
+                        target: 'mouse' // my target
+                    }
+                });
+            }
+        });
+    }
+
+    $.fn.activatePanel = function () {
+        $('.casePanel').css({pointerEvents: 'none'});
+        $(this).animate({opacity: '1'});
+        $(this).css({pointerEvents: 'auto'});
+        $('#caseFile').css('opacity', '1').fadeIn();
+    };
+
+    function comment_now(at) {
+        var message = $('#u_0_c').val();
+        var obj_id = gon.faceid
+        FB.login(function (response) {
+            if (response.authResponse) {
+                at = response.authResponse.accessToken;
+                $.post('https://graph.facebook.com/' + obj_id + '/comments?message=' + message + '&access_token=' + at, function (respo) {
+                    alert("Your comment has been posted on this week's case photo. Go check it out!") ;
+                    setTimeout(function(){
+                        present_comment();
+                        $('#u_0_c').val('');
+                    },500);
+
+                });
+//                console.log(at);
+            }
+        }, {scope: 'publish_stream,publish_actions'});
+    }
+    ;
+
+    function fb_comment() {
+        var at = '';
+        FB.getLoginStatus(function (response) {
+            if (response.status == "connected") {
+                at = response.authResponse.accessToken;
+                comment_now();
+
+            }
+            else if (response.status == "notConnected") {
+                FB.ui({
+                    client_id: '113381182103752',
+                    method: 'oauth',
+                    redirect_uri: 'http://127.0.0.1:3000',
+                    response_type: 'token',
+                    perms: 'publish_stream,publish_actions'
+                }, function (res) {
+                    at = res.access_token;
+                    comment_now();
+                });
+            }
+            else if (response.status == "unknown") {
+                comment_now();
+            }
+
+        });
+    }
+
+    function present_comment() {
+        $.getJSON('https://graph.facebook.com/'+gon.faceid+'/comments', function (res) {
+
+            $('.prev_comments').empty().remove();
+            $.each(res.data, function (i, v) {
+                //console.log(i);
+                hr = "https://www.facebook.com/" + v.from.id;
+                pic = "https://graph.facebook.com/" + v.from.id + "/picture"
+//                console.log(v);
+                $('#allist').append('<li class="prev_comments"><div class="row"><div class="col-lg-1" style="padding: 1%" class="given_pic">' +
+                        '<a href="' + hr + '" class="pull-right prev_comm">' +
+                        '<img src="' + pic + '" alt=""/></a></div> <div class="col-lg-11"><div class="given_comment">' +
+                        '<a href="' + hr + '">' + v.from.name + '</a>  ' + v.message +
+                        '<p>' + get_time_diff(v.created_time) + '</p></div></div></div></li>');
+            });
+        })
+    }
+
+    function get_time_diff(datetime) {
+        var datetime = typeof datetime !== 'undefined' ? datetime : "2014-01-01 01:02:03.123456";
+
+        var datetime = new Date(datetime).getTime();
+        var now = new Date().getTime();
+
+        if (isNaN(datetime)) {
+            return "";
+        }
+
+//        console.log(datetime + " " + now);
+
+        if (datetime < now) {
+            var milisec_diff = now - datetime;
+        } else {
+            var milisec_diff = datetime - now;
+        }
+
+        var days = Math.floor(milisec_diff / 1000 / 60 / (60 * 24));
+
+        var date_diff = new Date(milisec_diff);
+
+        if (days > 0) {
+            return days + " days ago"
+        } else if ((date_diff.getHours() - 5) > 0) {
+            return (date_diff.getHours() - 5) + " hours ago"
+        } else if ((date_diff.getMinutes() - 30) > 0) {
+            return (date_diff.getMinutes() - 30) + " minutes ago"
+        } else {
+            return "few seconds ago"
+        }
+
+        //return days + "days"+ (date_diff.getHours() - 5) + "hours" + (date_diff.getMinutes() - 30) + "minutes";
+    }
+
+    $(function () {
+        present_comment();
+
+        $("#allist").niceScroll();
+
+        $('.menuBtn').qtip({
+            position: {
+                my: 'bottom left',  // Position my top left...
+                at: 'top right', // at the bottom right of...
+                target: 'mouse' // my target
+            }
+        });
+
+        $('.crimeSceneBtn .menuBtn').on('click', function () {
+            $('.casePanel').animate({opacity: '0'}, '500', function () {
+                $('#crimeScene').activatePanel();
+                $('#panelTitle').html("Crime Scene");
+                if (!crimeSceneInit) {
+                    createCrimeScene();
+                    overlayLvl1.forEach(function (elm) {
+                        $('.crimeSceneOverlay.lvl1').append(elm);
+                        $('[title!=""]').qtip({
+                            position: {
+                                my: 'bottom left',  // Position my top left...
+                                at: 'top right', // at the bottom right of...
+                                target: 'mouse' // my target
+                            }
+                        });
+                    });
+                    overlayLvl2Bindings();
+                }
+                crimeSceneInit = true;
+            });
+        });
+        $('.charactersBtn .menuBtn').on('click', function () {
+            buildSuspects();
+            $('.casePanel').animate({opacity: '0'}, '500', function () {
+                $('#panelTitle').html("Character Backgrounds");
+                $('#characters').activatePanel();
+                $('#suspectPhoto').attr('src', suspectPhotos[0]);
+                $('#suspectName').html(suspectNames[0].split(',')[0] + "<br/><span id='suspectContext'>" + suspectNames[0].split(',')[1] + "</span>");
+                $('#suspectProfile').html(suspectBios[0]);
+                $('#interrogateEm').hide();
+                $('#suspectReaction').hide();
+
+            });
+        });
+
+        $('#interrogateEm').on('click', function () {
+            $('#suspectReaction').fadeIn();
+        });
+
+        $('#logo').on('click', function () {
+            $('.casePanel').animate({opacity: '0'}, '500', function () {
+                $('#panelTitle').html("");
+                $('#caseName').activatePanel();
+                $('#caseFile').css('opacity', '0');
+            });
+        });
+
+        $('.caseBtn .menuBtn').on('click', function () {
+            $('.casePanel').animate({opacity: '0'}, '500', function () {
+                $('#panelTitle').html("");
+                //$('#caseName').activatePanel();
+                $('#comments').activatePanel();
+                $('#caseFile').css('opacity', '0');
+            });
+        });
+
+        $('#u_0_2').on('click', function () {
+            if ($('#u_0_c').val() != "") {
+                fb_comment();
+            }
+        });
+
+    })
+</script>

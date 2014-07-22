@@ -1,0 +1,282 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #232323;
+  background-image: url('background.jpg');
+  background-size: 100% 100%;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+.casePanel {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+#panelTitle {
+  position: absolute;
+  top: -2em;
+  right: 1em;
+  font-size: 5em;
+  color: white;
+  text-shadow: white 0px 0px 30px;
+}
+
+img {
+  width: 100%;
+}
+
+#aside {
+  height: 100%;
+}
+
+#asideBack {
+  position: absolute;
+  height: 1000px;
+  width: 90%;
+  box-shadow: black 15px 10px 10px;
+  background: url("asideTexture.jpg");
+  left: 0;
+  top: 0;
+}
+
+#asideFront {
+  position: absolute;
+  width: 100%;
+  padding: 10%;
+}
+
+#logo {
+  width: 200%;
+  background: black;
+  opacity: 0.8;
+  padding-left: 20px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 200px;
+  border-top-left-radius: 100px;
+  box-shadow: white 0px 0px 30px;
+}
+
+ul.menu {
+  list-style: none;
+  pointer-events: auto;
+  margin-top: 4em;
+}
+
+ul.menu li {
+  width: 70%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: -15px;
+  cursor: pointer;
+  position: relative;
+}
+
+ul.menu li img {
+  border-radius: 50%;
+  width: 100%;
+  border: 5px solid white;
+  box-shadow: white 0px 0px 50px;
+}
+
+ul.menu li img:hover {
+  border: 5px solid goldenrod;
+  box-shadow: violet 0px 0px 50px;
+}
+
+#logo:hover {
+  box-shadow: violet 0px 0px 50px;
+  cursor: pointer;
+}
+
+#contentRow {
+  margin-top: 15em;
+}
+
+#contentPanel {
+  position: relative;
+}
+
+#panelBack {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 640px;
+  width: 100%;
+  background: url("panelBack.png");
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  opacity: 0.8;
+  box-shadow: white 0px 0px 30px;
+
+}
+
+#panelFront {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Case Name Block */
+
+#caseName {
+  color: white;
+  padding: 10px;
+  padding-right: 40px;
+  font-family: "Impact", sans-serif;
+  font-size: 6em;
+  text-align: right;
+  text-shadow: violet 0px 0px 10px;
+  opacity: 1;
+}
+
+#briefing {
+  font-size: 0.28em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  margin-top: 0.5em;
+  text-align: left;
+  padding: 30px;
+  background: black;
+  opacity: 0.8;
+
+}
+
+/* Crime Scene Block*/
+
+#crimeScene {
+  width: 100%;
+}
+
+.crimeSceneOverlay img {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+  opacity: 0.8;
+}
+
+.lvl2 {
+  margin-top: -10em;
+  margin-left: 1em;
+}
+
+.lvl3 {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.clue {
+  margin-top: -0.5em;
+  width: 100%;
+  padding: 10%;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  box-shadow: white 0px 0px 30px;
+}
+
+.lvl1 .clue {
+  margin-top: -20%;
+  margin-left: 80%;
+  padding: 5%;
+  padding-left: 15%;
+}
+
+.qtip-content {
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+.overlayPoint {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* Character Timelines*/
+
+#characters {
+  width: 98%;
+}
+
+#suspectPanel {
+  background: url("panelBack.png");
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.suspectThumb {
+  margin: 0.5em;
+  padding: 0;
+}
+
+.suspectThumb img {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+.suspectThumb img:hover {
+  border: 5px solid goldenrod;
+  box-shadow: violet 0px 0px 50px;
+}
+
+#suspectPhoto {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+}
+
+#suspectProfile {
+  color: white;
+  font-size: 1.8em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  margin-top: 0.5em;
+  text-align: left;
+  padding: 30px;
+  padding-top: 0;
+}
+
+#suspectName {
+  color: goldenrod;
+  text-shadow: violet 0px 0px 50px;
+  font-size: 5em;
+  line-height: 0.6em;
+  font-family: "Arial", sans-serif;
+  text-align: left;
+  padding: 30px;
+  padding-top: 50px;
+}
+
+#suspectContext {
+  color: black;
+  font-size: 0.6em;
+  margin-top: -0.4em;
+}
+
+#suspectReaction{
+  display: none;
+  background: url('interro.png');
+  background-size: 100% 100%;
+  font-size: 2em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  color:goldenrod;
+  padding:30px;
+  margin-top:-2em;
+
+}

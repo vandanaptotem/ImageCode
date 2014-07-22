@@ -1,0 +1,49 @@
+
+
+
+
+    <style type="text/css">
+    table.gridtable {
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:black;
+        border-width: 1px;
+        border-color: white;
+        border-collapse: collapse;
+    }
+    table.gridtable th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: white;
+        background-color: #dedede;
+    }
+    table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: white;
+        background-color: #ffffff;
+    }
+</style>
+
+</br>
+</br></br>
+  <table class="gridtable">
+    <tr>
+      <th>Case Name</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  <% @case_info.each do |cas| %>
+    <tr>
+       <td><%= cas.name %></td>
+       <td><%= cas.date %></td>
+       <td>
+           <%= link_to 'Show', case_show_path(cas.id) %></td>
+           <!--<a href="/case/<%= cas.id %>">Show</a>-->
+        </tr>
+        <%end %>
+      </table>
+
+
