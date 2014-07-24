@@ -14,7 +14,8 @@ TimelineNoir::Application.routes.draw do
       get 'case/:id' => 'welcome#archive', as: :case_show
 
   # get 'case/:id' => 'welcome#mainpage'
-  match 'cases', to: 'welcome#mainpage', via: [:get, :post]
+  match 'cases', to: 'welcome#mainpage', via: [:get, :post], :as=>"case_page"
+  match 'cases_page', to: 'welcome#main', via: [:get, :post], :as=>"cases_pages"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

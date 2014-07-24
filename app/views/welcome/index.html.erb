@@ -3,9 +3,9 @@
         margin-top: 1%;
         background-color: #f5f5f5;
     }
-    
+
     /*.prev_comm{*/
-        /**/
+    /**/
     /*}*/
 
     .prev_comm img {
@@ -22,10 +22,10 @@
     .given_pic {
         padding: 1%;
     }
-    
-    #u_0_c{
+
+    #u_0_c {
         font-size: 1.5em;
-        width:100%;
+        width: 100%;
     }
 
     #allist {
@@ -42,7 +42,9 @@
   <div class="col-lg-2" id="aside">
     <div id="asideBack"></div>
     <div id="asideFront">
-      <%= image_tag "logo.png", id: "logo" %>
+      <%#= image_tag "logo.png", id: "logo" %>
+      <%#= link_to "cases", case_page_path %>
+      <%= link_to image_tag("logo.png", :id=>"logo"), cases_pages_path %>
       <ul class="menu">
         <li class="crimeSceneBtn"><%= image_tag "crimescene.jpg", class: "menuBtn", title: "Explore the Crime Scene" %></li>
         <li class="charactersBtn"><%= image_tag "characters.jpg", class: "menuBtn", title: "Interview the Suspects" %></li>
@@ -171,45 +173,45 @@
     /* Case Input Structures */
     /*-----------------------------------------*/
 
-//    var lvl1Nodes = ["50,280,40,50", "125,375,120,120", "300,280,120,120"];
+    //    var lvl1Nodes = ["50,280,40,50", "125,375,120,120", "300,280,120,120"];
     var lvl1Nodes = gon.cord;
-//    var lvl1Data = ["There is something clogging the drain of the sink...||finger.jpg|| The ring finger of the victim. ", "This was by far one of the most brutal murders I have ever come across...||deadbody.jpg || The victim died by choking on a microphone. I should have a closer look.", "The desk has a myriad set of items. Some of them are interesting.||dresser.jpg || Chocolates? Love?"];
+    //    var lvl1Data = ["There is something clogging the drain of the sink...||finger.jpg|| The ring finger of the victim. ", "This was by far one of the most brutal murders I have ever come across...||deadbody.jpg || The victim died by choking on a microphone. I should have a closer look.", "The desk has a myriad set of items. Some of them are interesting.||dresser.jpg || Chocolates? Love?"];
     var lvl1Data = gon.stmt;
-   // console.log("lvl1Data :- " + lvl1Data);
-//    var lvl2Nodes = [
-//        ["190,60,65,65"],
-//        ["150,60,60,160", "50,200,60,60"],
-//        ["15,100,80,160", "40,40,70,70", "125,50,115,160"]
-//    ];
+    // console.log("lvl1Data :- " + lvl1Data);
+    //    var lvl2Nodes = [
+    //        ["190,60,65,65"],
+    //        ["150,60,60,160", "50,200,60,60"],
+    //        ["15,100,80,160", "40,40,70,70", "125,50,115,160"]
+    //    ];
     var lvl2Nodes = gon.childcordinate;
-//    var lvl2Data = [
-//        ["It looks like a very clean cut, done with something very sharp||ring.jpg||A gold wedding ring morbidly clings to the finger "],
-//        ["The murder weapon is ironic||microphone.jpg||The way he was killed suggests a fair amount of anger or strength. Maybe both.", "The guy was a lover of tattoos||tattoo.jpg || A strange choice for a tattoo."],
-//        ["The script of the interview||script.jpg||Man, he really did a number on his interview guest", "An empty box of chocolates with a scribbled card||chocolates.jpg || 'To having found our day of love.' Signed by his wife.", "Mostly office calls. But the last SMS is interesting||sms.jpg|| I know what you are planning. Don't be a fool. Sent by Jamshed Khan."]
-//    ];
+    //    var lvl2Data = [
+    //        ["It looks like a very clean cut, done with something very sharp||ring.jpg||A gold wedding ring morbidly clings to the finger "],
+    //        ["The murder weapon is ironic||microphone.jpg||The way he was killed suggests a fair amount of anger or strength. Maybe both.", "The guy was a lover of tattoos||tattoo.jpg || A strange choice for a tattoo."],
+    //        ["The script of the interview||script.jpg||Man, he really did a number on his interview guest", "An empty box of chocolates with a scribbled card||chocolates.jpg || 'To having found our day of love.' Signed by his wife.", "Mostly office calls. But the last SMS is interesting||sms.jpg|| I know what you are planning. Don't be a fool. Sent by Jamshed Khan."]
+    //    ];
 
-    var lvl2Data =gon.childrendata;
-//    var suspectNames = ['Praveen Singh, Victim', 'Gautam Ram, Politician', 'Leena Choksi, The Show\'s Producer', 'Jamshed Khan, The Channel\'s PR Manager', 'Shambhu Mastan, Gautam Ram\'s Bodyguard', 'Rupali Jain, The Show\'s Co-anchor', 'Ragini Singh, The Victim\'s Wife'];
+    var lvl2Data = gon.childrendata;
+    //    var suspectNames = ['Praveen Singh, Victim', 'Gautam Ram, Politician', 'Leena Choksi, The Show\'s Producer', 'Jamshed Khan, The Channel\'s PR Manager', 'Shambhu Mastan, Gautam Ram\'s Bodyguard', 'Rupali Jain, The Show\'s Co-anchor', 'Ragini Singh, The Victim\'s Wife'];
     var suspectNames = gon.suspects_name
-//    var suspectPhotos = ['/assets/praveen.jpg', '/assets/gautam.jpg', '/assets/leena.jpg', '/assets/jamshed.jpg', '/assets/shambhu.jpg', '/assets/rupali.jpg', '/assets/ragini.jpg'];
+    //    var suspectPhotos = ['/assets/praveen.jpg', '/assets/gautam.jpg', '/assets/leena.jpg', '/assets/jamshed.jpg', '/assets/shambhu.jpg', '/assets/rupali.jpg', '/assets/ragini.jpg'];
     var suspectPhotos = gon.images
-//    var suspectBios = ['Praveen Singh was a brash but successful young man. He was reputed to have antagonized several important and dangerous people over the course of his career. Nevertheless, he was widely admired for bringing forth the voice of the people and asking questions which the nation wanted to know about.',
-//        'Gautam Ram is the scion of the largest political family of the city. With very little to his credit besides the name, he was massacred in his interview with the victim earlier that evening. With elections around the corner, he would definitely be smarting from the incident. But would he be vicious enough to kill over it?',
-//        'Leena Choksi is the one credited with Praveen Singh\'s meteoric rise. A critically acclaimed producer, she was heard having an argument with the victim earlier that evening on the plan for the interview. Is there any reason to suspect her?',
-//        'Jamshed Khan is a ruthless professional who is credited with raising the victim\'s channel to stratospheric heights. A confirmed bachelor (some say homosexual), he has little in life but his work. Is it a stretch to wonder if he could be cutthroat enough to try murder as a marketing gimmick?',
-//        'Shambhu Mastan is a less than literate thug from Gautam Ram\'s constituency. Having been veritably brought up by the Ram family, he is the perfect bodyguard for the young politician. Could he have done the deed at Gautam Ram\'s behest or out of his own volition?',
-//        'Rupali Jain was a recent transfer from a competitor who Praveen had poached at a high cost. She apparently used to have a relationship with Praveen in their struggling days and continues to be single. The murder has all the signs of a crime of passion, so she is definitely topping my suspect list.',
-//        'Ragini Singh and Praveen had had an arranged marriage two years ago. Hailing from a rich but conservative family, she was an avid socialite with a tendency towards promiscuity. If I suspect Rupali, for the same reason I cannot rule out Ragini, can I? ' ];
-    var suspectBios =gon.sb
-//    var suspectReactions = ['',
-//        'You are asking the wrong questions. Are the youth empowered? Are the women empowered? Should I look right for information? Those are the fundamental questions...',
-//        'I don\'t know when Gautam Ram left, but I saw his bodyguard floating about Praveen\'s room. I had gone to check but it was locked...',
-//        'I had warned him. He was an arrogant, spineless brat who clearly went too far...anyway, I need to go and tweet about all that has happened here. The nation wants to know.',
-//        'I eat salt off my bossji. I do anything for him. But no, I not kill the @#$#@!%. I saw one woman go to his room when I was walking there.',
-//        'We never had a relationship. He treated me like his sister. By the way, he hated his wife and his marriage. He even told me he was going to divorce her. Did you know that? ',
-//        'Two years of living in a loveless marriage...and I mean completely loveless...do you know what it does to a woman? And then a few weeks back he changed. And now... '
-//    ];
-    var suspectReactions =  gon.sr;
+    //    var suspectBios = ['Praveen Singh was a brash but successful young man. He was reputed to have antagonized several important and dangerous people over the course of his career. Nevertheless, he was widely admired for bringing forth the voice of the people and asking questions which the nation wanted to know about.',
+    //        'Gautam Ram is the scion of the largest political family of the city. With very little to his credit besides the name, he was massacred in his interview with the victim earlier that evening. With elections around the corner, he would definitely be smarting from the incident. But would he be vicious enough to kill over it?',
+    //        'Leena Choksi is the one credited with Praveen Singh\'s meteoric rise. A critically acclaimed producer, she was heard having an argument with the victim earlier that evening on the plan for the interview. Is there any reason to suspect her?',
+    //        'Jamshed Khan is a ruthless professional who is credited with raising the victim\'s channel to stratospheric heights. A confirmed bachelor (some say homosexual), he has little in life but his work. Is it a stretch to wonder if he could be cutthroat enough to try murder as a marketing gimmick?',
+    //        'Shambhu Mastan is a less than literate thug from Gautam Ram\'s constituency. Having been veritably brought up by the Ram family, he is the perfect bodyguard for the young politician. Could he have done the deed at Gautam Ram\'s behest or out of his own volition?',
+    //        'Rupali Jain was a recent transfer from a competitor who Praveen had poached at a high cost. She apparently used to have a relationship with Praveen in their struggling days and continues to be single. The murder has all the signs of a crime of passion, so she is definitely topping my suspect list.',
+    //        'Ragini Singh and Praveen had had an arranged marriage two years ago. Hailing from a rich but conservative family, she was an avid socialite with a tendency towards promiscuity. If I suspect Rupali, for the same reason I cannot rule out Ragini, can I? ' ];
+    var suspectBios = gon.sb
+    //    var suspectReactions = ['',
+    //        'You are asking the wrong questions. Are the youth empowered? Are the women empowered? Should I look right for information? Those are the fundamental questions...',
+    //        'I don\'t know when Gautam Ram left, but I saw his bodyguard floating about Praveen\'s room. I had gone to check but it was locked...',
+    //        'I had warned him. He was an arrogant, spineless brat who clearly went too far...anyway, I need to go and tweet about all that has happened here. The nation wants to know.',
+    //        'I eat salt off my bossji. I do anything for him. But no, I not kill the @#$#@!%. I saw one woman go to his room when I was walking there.',
+    //        'We never had a relationship. He treated me like his sister. By the way, he hated his wife and his marriage. He even told me he was going to divorce her. Did you know that? ',
+    //        'Two years of living in a loveless marriage...and I mean completely loveless...do you know what it does to a woman? And then a few weeks back he changed. And now... '
+    //    ];
+    var suspectReactions = gon.sr;
 
     /*-----------------------------------------*/
     /* Case Variables Initializer*/
@@ -247,15 +249,15 @@
         for (var nodeLvl1 = 0; nodeLvl1 < lvl1Nodes.length; nodeLvl1++) {
             coordsLvl1[nodeLvl1] = lvl1Nodes[nodeLvl1].split(',');
             contentLvl1[nodeLvl1] = lvl1Data[nodeLvl1].split('||');
-           // var str=contentLvl1[nodeLvl1].toString().split(",")[1];
+            // var str=contentLvl1[nodeLvl1].toString().split(",")[1];
             //console.log("contentLvl1[nodeLvl1] :- " + contentLvl1[nodeLvl1].toString().split(",")[1]);
             overlayLvl1[nodeLvl1] = '<a href="#" title="' + contentLvl1[nodeLvl1][0] + '" class="overlayPoint" id="node1' + nodeLvl1 + '" style="left:' + coordsLvl1[nodeLvl1][0] + 'px;top:' + coordsLvl1[nodeLvl1][1] + 'px;width:' + coordsLvl1[nodeLvl1][2] + 'px;height:' + coordsLvl1[nodeLvl1][3] + 'px;"></a>';
-            srcLvl2[nodeLvl1] = '<img src="'+ contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
+            srcLvl2[nodeLvl1] = '<img src="' + contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
             for (var nodeLvl2 = 0; nodeLvl2 < lvl2Nodes[nodeLvl1].length; nodeLvl2++) {
                 coordsLvl2[nodeLvl1][nodeLvl2] = lvl2Nodes[nodeLvl1][nodeLvl2].split(',');
                 contentLvl2[nodeLvl1][nodeLvl2] = lvl2Data[nodeLvl1][nodeLvl2].split('||');
                 overlayLvl2[nodeLvl1][nodeLvl2] = '<a href="#" title="' + contentLvl2[nodeLvl1][nodeLvl2][0] + '" class="overlayPoint" id="node2_' + nodeLvl1 + "_" + nodeLvl2 + '" style="left:' + coordsLvl2[nodeLvl1][nodeLvl2][0] + 'px;top:' + coordsLvl2[nodeLvl1][nodeLvl2][1] + 'px;width:' + coordsLvl2[nodeLvl1][nodeLvl2][2] + 'px;height:' + coordsLvl2[nodeLvl1][nodeLvl2][3] + 'px;"></a>';
-                srcLvl3[nodeLvl1][nodeLvl2] = '<img src="'+contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
+                srcLvl3[nodeLvl1][nodeLvl2] = '<img src="' + contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
             }
         }
     }
@@ -333,11 +335,11 @@
             if (response.authResponse) {
                 at = response.authResponse.accessToken;
                 $.post('https://graph.facebook.com/' + obj_id + '/comments?message=' + message + '&access_token=' + at, function (respo) {
-                    alert("Your comment has been posted on this week's case photo. Go check it out!") ;
-                    setTimeout(function(){
+                    alert("Your comment has been posted on this week's case photo. Go check it out!");
+                    setTimeout(function () {
                         present_comment();
                         $('#u_0_c').val('');
-                    },500);
+                    }, 500);
 
                 });
 //                console.log(at);
@@ -374,7 +376,7 @@
     }
 
     function present_comment() {
-        $.getJSON('https://graph.facebook.com/'+gon.faceid+'/comments', function (res) {
+        $.getJSON('https://graph.facebook.com/' + gon.faceid + '/comments', function (res) {
 
             $('.prev_comments').empty().remove();
             $.each(res.data, function (i, v) {

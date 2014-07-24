@@ -1,0 +1,95 @@
+<style type="text/css">
+    /*table.gridtable {*/
+    /*font-family: verdana, arial, sans-serif;*/
+    /*font-size: 11px;*/
+    /*color: black;*/
+    /*border-width: 1px;*/
+    /*border-color: white;*/
+    /*border-collapse: collapse;*/
+    /*}*/
+
+    /*table.gridtable th {*/
+    /*border-width: 1px;*/
+    /*padding: 8px;*/
+    /*border-style: solid;*/
+    /*border-color: white;*/
+    /*background-color: #dedede;*/
+    /*}*/
+
+    /*table.gridtable td {*/
+    /*border-width: 1px;*/
+    /*padding: 8px;*/
+    /*border-style: solid;*/
+    /*border-color: white;*/
+    /*background-color: #ffffff;*/
+    /*}*/
+    body {
+        background: url("/assets/background.jpg") no-repeat scroll 0 0 / 100% 100% #232323;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .parentalign {
+        /*border: 1px dashed white;*/
+        height: 220px;
+        margin: auto;
+        position: relative;
+        top: 30%;
+        width: 70%;
+        left: 10%;
+    }
+
+    a {
+        text-decoration: none;
+        width: 32%;
+        margin: 2%;
+
+        height: 40px;
+        float: left;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        padding-top: 25px;
+        font-size: 18px;
+        outline-style: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+        box-shadow: 0 0 37px 4px white, 0 0 36px 4px white inset;
+        color: #f4c220;
+    }
+
+    #logo {
+        width: 50%;
+        background: black;
+        position: relative;
+        top:50%;
+        opacity: 0.8;
+        padding-left: 20px;
+        padding-right: 60px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 200px;
+        border-top-left-radius: 100px;
+        box-shadow: white 0px 0px 30px;
+    }
+
+</style>
+
+<%= link_to image_tag("logo.png", :id=>"logo"), cases_pages_path, :style => "margin:0px; padding:0px;" %>
+<div class="parentalign">
+  <%= link_to 'This week case', :class=> 'butn' %>
+  <%= link_to 'Old cases', case_page_path, :class=> 'butn' %>
+
+</div>
+</table>
+
+
+
+

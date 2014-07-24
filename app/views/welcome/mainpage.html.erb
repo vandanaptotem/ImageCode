@@ -1,49 +1,55 @@
-
-
-
-
-    <style type="text/css">
-    table.gridtable {
-        font-family: verdana,arial,sans-serif;
-        font-size:11px;
-        color:black;
-        border-width: 1px;
-        border-color: white;
-        border-collapse: collapse;
+<style type="text/css">
+    body {
+        background: url("/assets/background.jpg") no-repeat black;
+        background-size: 100% 100%;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        height: 96%;
     }
-    table.gridtable th {
-        border-width: 1px;
-        padding: 8px;
-        border-style: solid;
-        border-color: white;
-        background-color: #dedede;
+
+    ul {
+        width: 50%;
+        margin: auto;
+        padding-top: 7%;
     }
-    table.gridtable td {
-        border-width: 1px;
-        padding: 8px;
-        border-style: solid;
-        border-color: white;
-        background-color: #ffffff;
+
+    .divcontent {
+        height: 40px;
+        text-align: center;
+        color: #ffffff;
+        padding-top: 20px;
+        font-size: 15px;
+        height: 40px;
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #f4c220;
+    }
+
+    div:hover {
+        box-shadow: 0 0 17px 2px white, 0 0 28px 1px white inset;
+        color: #f4c220;
     }
 </style>
 
-</br>
-</br></br>
-  <table class="gridtable">
-    <tr>
-      <th>Case Name</th>
-      <th>Date</th>
-      <th></th>
-    </tr>
+<ul>
   <% @case_info.each do |cas| %>
-    <tr>
-       <td><%= cas.name %></td>
-       <td><%= cas.date %></td>
-       <td>
-           <%= link_to 'Show', case_show_path(cas.id) %></td>
-           <!--<a href="/case/<%= cas.id %>">Show</a>-->
-        </tr>
-        <%end %>
-      </table>
-
-
+      <li>
+        <div class="divcontent"><%= link_to cas.name, case_show_path(cas.id) %></div>
+        <%#= cas.name %>
+        <%#= cas.date %>
+      </li>
+  <% end %>
+</ul>
