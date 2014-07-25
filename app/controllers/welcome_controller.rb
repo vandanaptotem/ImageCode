@@ -84,10 +84,34 @@ class WelcomeController < ApplicationController
     # @elements = params[:id]
     # @case=CaseInfo.find(params[:id])
     @case_info=CaseInfo.all
-    # render :json => @case_info.name
+    gon.json={
+        :timeline=>
+            {
+                :headline=>"",
+                :type=>"default",
+                :text=>"The Sachin Memory Project",
+                :score=>"",
+                :date=>
+                    @case_info.map do |i|
+                      {
+                          :startDate=>i.date.strftime("%Y,%m,%d"),
+                          :headline=>i.name,
+                          :text=>i.description,
+                          :asset=>
+                              {
+                                  :media=>i.media,
+                                  :caption=>""
+                              }
+                      }
+                    end
+            }
+    }.to_json
+
+    # render :json => gon.json
     #      return
-    render :layout => false
+    #render :layout => false
   end
+
 
   def main
     render :layout => false
