@@ -1,5 +1,5 @@
 class AddColumnMediaToCaseInfos < ActiveRecord::Migration
-  def self.up
+   def self.up
     change_table :case_infos do |t|
       t.attachment :media
     end
