@@ -33,8 +33,6 @@ class WelcomeController < ApplicationController
 
     #  @clue_info=@case.crime_scenes.map{|i| "#{i.comment}, #{i.image.url}"}
     # gon.clue_data=@clue_info
-    # render :json => @clue_info
-    #     return
 
   end
 
@@ -78,6 +76,9 @@ class WelcomeController < ApplicationController
     #     return
     # render :json => @case_id
     # return
+    # render :json => gon.images
+    # return
+
   end
 
   def mainpage

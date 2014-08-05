@@ -1,0 +1,717 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #232323;
+  background-image: url('background.jpg');
+  background-size: 100% 100%;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+.casePanel {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+#panelTitle {
+  position: absolute;
+  top: -2em;
+  right: 1em;
+  font-size: 5em;
+  color: white;
+  text-shadow: white 0px 0px 30px;
+}
+
+img {
+  width: 100%;
+}
+
+#aside {
+  height: 100%;
+}
+
+#asideBack {
+  position: absolute;
+  height: 1000px;
+  width: 90%;
+  box-shadow: black 15px 10px 10px;
+  background: url("asideTexture.jpg");
+  left: 0;
+  top: 0;
+}
+
+#asideFront {
+  position: absolute;
+  width: 100%;
+  padding: 10%;
+}
+
+#logo {
+  width: 200%;
+  background: black;
+  opacity: 0.8;
+  padding-left: 20px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 200px;
+  border-top-left-radius: 100px;
+  box-shadow: white 0px 0px 30px;
+}
+
+
+ul.menu {
+  list-style: none;
+  pointer-events: auto;
+  margin-top: 4em;
+}
+
+ul.menu li {
+  width: 70%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: -15px;
+  cursor: pointer;
+  position: relative;
+}
+
+ul.menu li img {
+  border-radius: 50%;
+  width: 100%;
+  border: 5px solid white;
+  box-shadow: white 0px 0px 50px;
+}
+
+ul.menu li img:hover {
+  border: 5px solid goldenrod;
+  box-shadow: violet 0px 0px 50px;
+}
+
+#logo:hover {
+  box-shadow: violet 0px 0px 50px;
+  cursor: pointer;
+}
+
+#contentRow {
+  margin-top: 15em;
+}
+
+#contentPanel {
+  position: relative;
+}
+
+#panelBack {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 640px;
+  width: 100%;
+  background: url("panelBack.png");
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  opacity: 0.8;
+  box-shadow: white 0px 0px 30px;
+
+}
+
+#panelFront {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Case Name Block */
+
+#caseName {
+  color: white;
+  padding: 10px;
+  padding-right: 40px;
+  font-family: "Impact", sans-serif;
+  font-size: 6em;
+  text-align: right;
+  text-shadow: violet 0px 0px 10px;
+  opacity: 1;
+}
+
+#briefing {
+  font-size: 0.28em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  margin-top: 0.5em;
+  text-align: left;
+  padding: 30px;
+  background: black;
+  opacity: 0.8;
+
+}
+
+/* Crime Scene Block*/
+
+#crimeScene {
+  width: 100%;
+}
+
+.crimeSceneOverlay{
+  position: relative;
+}
+
+.crimeSceneOverlay img {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+  opacity: 0.8;
+}
+
+.lvl2 {
+  margin-top: -10em;
+}
+
+.lvl3 {
+  margin-top: 1em;
+}
+
+.clue {
+  margin-top: -0.5em;
+  width: 100%;
+  padding: 10%;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  box-shadow: white 0px 0px 30px;
+}
+
+.lvl1 .clue {
+  margin-top: -20%;
+  margin-left: 80%;
+  padding: 5%;
+  padding-left: 15%;
+}
+
+.qtip-content {
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+.overlayPoint {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* Character Timelines*/
+
+#characters {
+  width: 98%;
+}
+
+#suspectPanel {
+  background: url("panelBack.png");
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.suspectThumb {
+  margin: 0.5em;
+  padding: 0;
+}
+
+.suspectThumb img {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+  border: 5px solid white;
+  cursor: pointer;
+}
+
+.suspectThumb img:hover {
+  border: 5px solid goldenrod;
+  box-shadow: violet 0px 0px 50px;
+}
+
+#suspectPhoto {
+  border-radius: 50%;
+  box-shadow: white 0px 0px 30px;
+}
+
+#suspectProfile {
+  color: white;
+  font-size: 1.8em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  margin-top: 0.5em;
+  text-align: left;
+  padding: 30px;
+  padding-top: 0;
+}
+
+#suspectName {
+  color: goldenrod;
+  text-shadow: violet 0px 0px 50px;
+  font-size: 5em;
+  line-height: 0.6em;
+  font-family: "Arial", sans-serif;
+  text-align: left;
+  padding: 30px;
+  padding-top: 50px;
+}
+
+#suspectContext {
+  color: black;
+  font-size: 0.6em;
+  margin-top: -0.4em;
+}
+
+#suspectReaction{
+  display: none;
+  background: url('interro.png');
+  background-size: 100% 100%;
+  font-size: 2em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  color:goldenrod;
+  padding:30px;
+  margin-top:-2em;
+
+}
+
+.prev_comments {
+}
+
+.prev_comm img {
+  width: 100%;
+}
+
+.given_comment {
+  color: #fff;
+  font-size: 1.2em;
+  padding:5px;
+}
+
+.given_pic {
+  float:left;
+  box-shadow: white 0 0 10px;
+  padding:10px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.fbName{
+  color:goldenrod;
+}
+
+.fbName:hover{
+  color:violet;
+  text-shadow: goldenrod 0 0 10px 10px;
+  text-decoration: none;
+}
+
+#u_0_c{
+  font-size: 1.5em;
+  width:100%;
+  background: url("commentBox.png");
+  background-size: 100% 100%;
+  border:none;
+  padding-left:20px;
+  padding-top:10px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  color:goldenrod;
+  font-weight:bold;
+  box-shadow: violet 0px 0px 10px;
+  border-radius: 5px;
+  margin-top:0.5em;
+  margin-bottom: 20px;
+  height:50px;
+}
+
+#commentsBack{
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-left: 60px;
+  padding-bottom: 80px;
+  background: url("commentPanelBack.png");
+  background-size: 100% 100%;
+  margin-left:4em;
+}
+
+#commentsWrapper{
+  height: 200px;
+  overflow: hidden;
+}
+
+#allist {
+  width:100%;
+  list-style: none;
+}
+
+#logo-xs {
+  width:100%;
+}
+
+.menuBtn-xs {
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #FFFFFF;
+  margin: 0.2em;
+  cursor: pointer;
+}
+
+.help-xs{
+  position: relative;
+  color:white;
+  background: black;
+  padding:0.1em;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.nopad{
+  margin:0;
+  padding:0.2em;
+}
+
+.casePanel-xs {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#panelTitle-xs {
+  margin-top: 0.3em;
+  margin-right: 0.5em;
+  font-size: 2em;
+  color: white;
+  text-shadow: white 0px 0px 30px;
+  text-align: right;
+}
+
+#header-xs{
+  display: none;
+  text-align: right;
+}
+
+#backToMain{
+  box-shadow: violet 0px 0px 50px;
+  margin-right: 0.9em;
+}
+
+#contentRow-xs{
+  position:relative;
+}
+
+#title-xs{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+#caseName-xs{
+  color: goldenrod;
+  text-shadow: violet 0px 0px 50px;
+  font-size:5em;
+}
+
+#caseProfile-xs{
+  color:white;
+  display: none;
+  opacity:0;
+  margin-top:2em;
+  font-size: 1em;
+  text-align: justify;
+}
+
+#crimeScene-xs{
+  margin-top: 3em;
+  width:100%;
+}
+
+.crimeSceneInstruction{
+  color: goldenrod;
+  text-shadow: violet 0px 0px 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: -1em;
+}
+
+.crimeSceneInstruction .clue{
+  font-size:1em;
+  padding:1em;
+}
+
+.lvl2.lvl2-xs {
+  margin-top: 0;
+}
+.lvl3.lvl3-xs {
+  margin-top: 0;
+}
+
+#back1{
+  position: absolute;
+  width:25%;
+  top:20%;
+  left:-10%;
+  box-shadow: violet 0px 0px 50px;
+}
+#back2{
+  position: absolute;
+  width:25%;
+  top:10%;
+  left:-30%;
+  box-shadow: violet 0px 0px 50px;
+}
+#back3{
+  position: absolute;
+  width:40%;
+  top:16%;
+  left:-18%;
+  box-shadow: goldenrod 0px 0px 50px;
+}
+
+#suspectPanel-xs {
+  background: url("panelbackXs.png");
+  background-size: 100% 100%;
+  width: 100%;
+  padding:1.5em;
+  margin-left: 0.1em;
+  margin-top: 1em;
+  box-shadow: goldenrod 0px 0px 50px;
+}
+
+.suspectThumb-xs img {
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+
+#suspectProfile-xs {
+  color: white;
+  font-size: 1.2em;
+  line-height: 1em;
+  font-family: "Arial", sans-serif;
+  margin-top: 0.5em;
+  padding-top: 0;
+  text-align: center;
+}
+
+#suspectName-xs {
+  color: goldenrod;
+  text-shadow: violet 0px 0px 50px;
+  font-size: 2em;
+  line-height: 0.6em;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+#suspectContext-xs {
+  color: violet;
+  font-size: 0.6em;
+}
+
+#suspectReaction-xs{
+  display: none;
+  background: url('interroXs.png');
+  width: 100%;
+  padding:1.5em;
+  margin-left: 0.1em;
+  margin-top: 1em;
+  color:white;
+  font-size: 1em;
+}
+
+.closeInter{
+  float:right;
+  font-size:3em;
+  font-weight: bold;
+  margin-right: -0.3em;
+  margin-top: -0.6em;
+  color:goldenrod;
+}
+
+#interrogateEm-xs{
+  display: none;
+}
+
+#comments-xs{
+  width:70%;
+  margin-left: 15%;
+}
+#commentsBack-xs{
+  margin: 0 auto;
+  margin-top:2em;
+  width:100%;
+}
+
+#u_0_c-xs{
+  font-size: 1em;
+  width:100%;
+  background: url("commentBox.png");
+  background-size: 100% 100%;
+  border:none;
+  color:goldenrod;
+  font-weight:bold;
+  box-shadow: violet 0px 0px 10px;
+  border-radius: 5px;
+  margin-top:0.5em;
+  margin-bottom: 20px;
+  height:50px;
+  padding-left:1em;
+  padding-top:1em;
+}
+
+#allist-xs{
+  padding:1.3em;
+  margin:0;
+}
+
+#commentsWrapper-xs{
+  height:200px;
+  overflow-y:auto;
+  overflow-x: hidden;
+}
+
+#crimeScene-xs .row .crimeSceneOverlay .overlayPoint {
+  background:white;
+  border-radius:50%;
+  opacity:0.2;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width : 1024px){
+	
+	.visible-sm{
+	margin-left:3em;
+	}
+	.hidden-md{
+	margin-left:3em;
+	}
+
+
+.btn-sm{
+font-size:5em;
+}
+
+  .help-xs{
+    padding:0.3em;
+    font-size: 1em;
+  }
+
+  .nopad{
+    margin:0;
+    padding:0.4em;
+  }
+
+  #panelTitle-xs {
+    margin-top: 0.3em;
+    margin-right: 0.5em;
+    font-size: 7em;
+  }
+
+  #backToMain{
+    margin-right: 2em;
+  }
+
+  #caseName-xs{
+    font-size:12em;
+  }
+
+  #caseProfile-xs{
+    margin-top:2em;
+    font-size: 3em;
+  }
+
+  #crimeScene-xs{
+    margin-top: 3em;
+  }
+
+  .crimeSceneInstruction{
+    margin-top: 1em;
+  }
+
+  .crimeSceneInstruction .clue{
+    font-size:4em;
+    padding:1em;
+  }
+
+
+  #suspectPanel-xs {
+    padding:4em;
+    margin-left: 0.1em;
+    margin-top: 2em;
+  }
+
+  .suspectThumb-xs img {
+    border: 5px solid white;
+  }
+
+
+  #suspectProfile-xs {
+    font-size: 4em;
+    line-height: 1em;
+    margin-top: 0.5em;
+    padding-top: 0;
+  }
+
+  #suspectName-xs {
+    font-size: 6em;
+    line-height: 0.6em;
+  }
+
+  #suspectContext-xs {
+    font-size: 0.6em;
+  }
+
+  #suspectReaction-xs{
+    padding:1.5em;
+    margin-left: 0.1em;
+    margin-top: 1em;
+    font-size: 3em;
+  }
+
+  .closeInter{
+    font-size:3em;
+    font-weight: bold;
+    margin-right: -0.3em;
+    margin-top: -0.6em;
+  }
+
+  #commentsBack-xs{
+    margin-top:2em;
+    width:100%;
+  }
+
+  #u_0_c-xs{
+    font-size: 3em;
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+    height:4em;
+    padding-left:1em;
+    padding-top:1em;
+	padding-bottom:1em;
+  }
+
+  #allist-xs{
+    padding:1.3em;
+    margin:0;
+  }
+
+  #commentsWrapper-xs{
+    height:30%;
+  }
+
+.given_comment {
+  color: #fff;
+  font-size: 3em;
+  padding:5px;
+}
+
+}

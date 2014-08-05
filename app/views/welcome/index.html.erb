@@ -1,61 +1,17 @@
-<style>
-    .prev_comments {
-        margin-top: 1%;
-        background-color: #f5f5f5;
-    }
-
-    /*.prev_comm{*/
-    /**/
-    /*}*/
-
-    .prev_comm img {
-        width: 100%
-    }
-
-    .given_comment {
-        background: white;
-        color: #000000;
-        font-size: 1.2em;
-        padding: 2%;
-    }
-
-    .given_pic {
-        padding: 1%;
-    }
-
-    #u_0_c {
-        font-size: 1.5em;
-        width: 100%;
-    }
-
-    #allist {
-        background-color: rgba(0, 0, 0, 0.70);
-        list-style: none;
-        padding: 2%;
-        max-height: 450px;
-        min-height: 450px;
-        overflow: hidden;
-        margin-top: 2%;
-    }
-</style>
-<div class="row">
+<div class="row visible-lg visible-md">
   <div class="col-lg-2" id="aside">
     <div id="asideBack"></div>
     <div id="asideFront">
-      <%#= image_tag "logo.png", id: "logo" %>
-      <%#= link_to "cases", case_page_path %>
-      <%= link_to image_tag("logo.png", :id=>"logo"), cases_pages_path %>
+      <%= image_tag "logo.png", id: "logo" %>
       <ul class="menu">
         <li class="crimeSceneBtn"><%= image_tag "crimescene.jpg", class: "menuBtn", title: "Explore the Crime Scene" %></li>
         <li class="charactersBtn"><%= image_tag "characters.jpg", class: "menuBtn", title: "Interview the Suspects" %></li>
         <li class="caseBtn"><%= image_tag "brief.jpg", class: "menuBtn", title: "Solve the Case" %></li>
       </ul>
-      <%= image_tag "casefile.png", style: "position:absolute; left:-20px;bottom:-280px; width:120%; display:none;", id: "caseFile" %>
-    </div>
 
+    </div>
   </div>
   <div class="col-lg-10">
-
     <div class="row" id="contentRow">
       <div id="contentPanel">
         <div id="panelBack"></div>
@@ -63,32 +19,18 @@
           <div id="panelTitle"></div>
           <div id="caseName" class="casePanel">
             <div class="row">
-              <%= @case.name %>
-              <!--The Case of the Late Show Host-->
+              The Case of the Circus Crisis
               <%= image_tag "crimeTape.png" %>
             </div>
             <div class="row">
               <div class="col-lg-6"></div>
               <div class="col-lg-6" id="briefing">
-                <%#= @case.description%>
-                <%= raw @case.description %>
-                <!--TV Presenter Praveen Singh had come a long way.-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--From the early days of being a lowly intern at a minor channel, he had grown to be the face to watch in-->
-                <!--news.-->
-                <!--His hard hitting interview style was loved or hated, but never ignored.-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--As he wrapped up his show for the night, he smiled to himself with smug satisfaction.-->
-                <!--He had just finished destroying the credibility of yet another rookie politician trying to make it big-->
-                <!--with their family name.-->
-                <!--'Like stealing candy from a baby', he thought as he walked off the set...-->
-                <!--<br/>-->
-                <!--<br/>-->
-                <!--An hour later, he was found lying dead in his makeup room....-->
-                <!--<br/>-->
-                <!--<br/>-->
+                The Ptotem Circus. A legendary circus. I remember stealing money from my mother's purse to go catch a glimpse of their show. Guess the world has a way of screwing everyone over. The circus scene dies, and they limp on with their star act.
+                <br/>
+                <br/>
+                And now, their star is dead. The flying beauty is what they called her. I'd be a shame if I dont get to the bottom of this. After all I owe them many evenings of entertainment.
+                <br/>
+                <br/>
               </div>
             </div>
           </div>
@@ -96,7 +38,8 @@
             <div class="row">
               <div class="col-lg-5 crimeSceneOverlay lvl1">
                 <%= image_tag "lvl1.jpg" %>
-                <h4 class="clue">The victim was found in the makeup room an hour after his show...</h4>
+                <h4 class="clue">Explore the crime scene by hovering over the
+                  photos and clicking on the interesting spots.</h4>
               </div>
               <div class="col-lg-3 crimeSceneOverlay lvl2">
               </div>
@@ -108,15 +51,10 @@
             <div class="row" id="charMenu"></div>
             <div id="suspectPanel">
               <div class="row">
-                <div class="col-lg-4">
-                  <!--<img src="#" id="suspectPhoto"/>-->
-
-                </div>
+                <div class="col-lg-4"><img src="#" id="suspectPhoto"/></div>
                 <div class="col-lg-7">
                   <div class="row">
-                    <div id="suspectName">
-
-                    </div>
+                    <div id="suspectName"></div>
                     <%= image_tag "interrogate.png", id: "interrogateEm", style: "position:absolute; width:20%;right:0;top:30px;cursor:pointer;", title: "Interrogate the Person" %>
                   </div>
                   <div class="row">
@@ -127,42 +65,158 @@
               </div>
             </div>
           </div>
-
           <div id="comments" class="casePanel">
-            <!--<div class="row">-->
-            <!--<textarea id="u_0_c" cols="80" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Add a comment..." required="1" title="Add a comment..." class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>-->
-            <!--<label for="u_0_2" class="fbCommentButton uiButton uiButtonConfirm">-->
+            <br/>
+            <br/>
 
-            <!--</label>-->
-            <!--</div>-->
             <div class="row">
-              <div class="col-lg-7 col-lg-offset-7" style="color: white">
-                <h1>Who do you think the killer is?</h1>
-              </div>
+              <div class="col-lg-10" id="commentsBack">
+                <div class="row" style="margin-left: 20px;">
+                  <div class="col-lg-12" style="border-bottom: 1px solid #333">
+                    <textarea id="u_0_c" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Who is the killer and why did they do it?" required="1" class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>
+                    <input type="submit" id="u_0_2" value="Comment" class="btn btn-warning btn-sm pull-right u_0_2" style="margin-bottom: 10px">
+                  </div>
+                </div>
+                <br/>
 
-            </div>
-            <div class="row">
-              <div class="col-lg-10 col-lg-offset-1">
-                <ul id="allist" class="UFIList">
-                  <li>
-                    <div class="row">
-                      <div class="col-lg-10">
-                        <textarea id="u_0_c" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Add a comment..." required="1" title="Add a comment..." class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>
-                      </div>
-                      <div class="col-lg-1" style="margin-left: 20px;">
-                        <input type="submit" id="u_0_2" value="Comment" class="btn btn-lrg btn-info">
-                      </div>
-                    </div>
-                    <br/>
-                  </li>
-                </ul>
+                <div class="row">
+                  <div class="col-lg-12" id="commentsWrapper">
+                    <ul id="allist" class="UFIList"></ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
+  </div>
+
+</div>
+
+<!-- Phone Code -->
+
+<div class="row hidden-md hidden-lg ">
+  <div class="row" style="margin-top: 5%" id="menu-xs">
+    <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1">
+      <%= image_tag "logo-xs.png", id: "logo-xs" %>
+    </div>
+    <div class="col-xs-5 col-sm-5" id="header-xs">
+      <div id="panelTitle-xs"></div>
+      <a href="#" id="backToMain"><img src="/assets/back.gif" style="width:50%"/></a>
+    </div>
+  </div>
+
+  <div id="contentRow-xs">
+    <div class="row casePanel-xs" id="title-xs">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+          <br/>
+          <br/>
+
+          <h1 id="caseName-xs">The Case of the Circus Crisis</h1>
+          <br/>
+          <br/>
+          <div class="row">
+            <%= image_tag "start.png",class:"col-sm-4 col-xs-4", onclick:"$(this).parent().parent().fadeOut();$('#caseProfile-xs').fadeIn().animate({opacity:'1'},500);"%>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="caseProfile-xs">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+            The Ptotem Circus. A legendary circus. I remember stealing money from my mother's purse to go catch a glimpse of their show. Guess the world has a way of screwing everyone over. The circus scene dies, and they limp on with their star act.
+            <br/>
+            <br/>
+            And now, their star is dead. The flying beauty is what they called her. I'd be a shame if I dont get to the bottom of this. After all I owe them many evenings of entertainment.
+            <br/>
+            <br/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 menu">
+            <div class="row">
+              <div class="crimeSceneBtn col-sm-4 nopad"><%= image_tag "crimescene.jpg", class: "menuBtn-xs" %>
+                <div class="help-xs">Crime Scene</div>
+              </div>
+              <div class="charactersBtn col-sm-4 nopad"><%= image_tag "characters.jpg", class: "menuBtn-xs" %>
+                <div class="help-xs">Characters</div>
+              </div>
+              <div class="caseBtn col-sm-4 nopad"><%= image_tag "brief.jpg", class: "menuBtn-xs" %>
+                <div class="help-xs">Solve It</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row casePanel-xs" id="crimeScene-xs">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 crimeSceneOverlay lvl1">
+          <%= image_tag "lvl1.jpg" %>
+        </div>
+        <div class="col-xs-7 col-xs-offset-3 col-sm-7 col-sm-offset-3 crimeSceneOverlay lvl2 lvl2-xs">
+        </div>
+        <div class="col-xs-6 col-xs-offset-4 col-sm-6 col-sm-offset-4 crimeSceneOverlay lvl3 lvl3-xs">
+        </div>
+      </div>
+      <br/>
+
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 crimeSceneInstruction">
+          <h4 class="clue">Explore the crime scene by tapping over interesting spots in the photographs.</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row casePanel-xs" id="characters-xs">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1">
+            <div id="carousel-characters" class="carousel slide" data-interval="false">
+              <!-- Indicators -->
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" id="carouselBlocks"></div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-characters" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-characters" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+            <%= image_tag "interrogate.png", id: "interrogateEm-xs", style: "position:absolute; width:50%;right:-2em;top:1em;" %>
+          </div>
+        </div>
+        <div class="row" id="suspectPanel-xs">
+          <div id="suspectName-xs"></div>
+          <div id="suspectProfile-xs"></div>
+          <div id="suspectReaction-xs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row casePanel-xs" id="comments-xs">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2" id="commentsBack-xs">
+          <div class="row">
+            <textarea id="u_0_c-xs" aria-owns="typeahead_list_u_0_b" aria-expanded="false" autocomplete="off" aria-autocomplete="list" role="textbox" name="text" placeholder="Who is the killer and why did they do it?" required="1" class="DOMControl_placeholder uiTextareaNoResize uiTextareaAutogrow input mentionsTextarea textInput"></textarea>
+            <input type="submit" id="u_0_2-xs" value="Comment" class="btn btn-warning btn-xs pull-right u_0_2">
+          </div>
+          <br/>
+
+          <div class="row">
+            <div id="commentsWrapper-xs">
+              <ul id="allist-xs" class="UFIList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>
@@ -195,6 +249,7 @@
     var suspectNames = gon.suspects_name
     //    var suspectPhotos = ['/assets/praveen.jpg', '/assets/gautam.jpg', '/assets/leena.jpg', '/assets/jamshed.jpg', '/assets/shambhu.jpg', '/assets/rupali.jpg', '/assets/ragini.jpg'];
     var suspectPhotos = gon.images
+    console.log(suspectPhotos);
     //    var suspectBios = ['Praveen Singh was a brash but successful young man. He was reputed to have antagonized several important and dangerous people over the course of his career. Nevertheless, he was widely admired for bringing forth the voice of the people and asking questions which the nation wanted to know about.',
     //        'Gautam Ram is the scion of the largest political family of the city. With very little to his credit besides the name, he was massacred in his interview with the victim earlier that evening. With elections around the corner, he would definitely be smarting from the incident. But would he be vicious enough to kill over it?',
     //        'Leena Choksi is the one credited with Praveen Singh\'s meteoric rise. A critically acclaimed producer, she was heard having an argument with the victim earlier that evening on the plan for the interview. Is there any reason to suspect her?',
@@ -251,12 +306,12 @@
             contentLvl1[nodeLvl1] = lvl1Data[nodeLvl1].split('||');
             // var str=contentLvl1[nodeLvl1].toString().split(",")[1];
             //console.log("contentLvl1[nodeLvl1] :- " + contentLvl1[nodeLvl1].toString().split(",")[1]);
-            overlayLvl1[nodeLvl1] = '<a href="#" title="' + contentLvl1[nodeLvl1][0] + '" class="overlayPoint" id="node1' + nodeLvl1 + '" style="left:' + coordsLvl1[nodeLvl1][0] + 'px;top:' + coordsLvl1[nodeLvl1][1] + 'px;width:' + coordsLvl1[nodeLvl1][2] + 'px;height:' + coordsLvl1[nodeLvl1][3] + 'px;"></a>';
+            overlayLvl1[nodeLvl1] = '<a href="#" title="' + contentLvl1[nodeLvl1][0] + '" class="overlayPoint" id="node1' + nodeLvl1 + '" style="left:' + coordsLvl1[nodeLvl1][0] + '%;top:' + coordsLvl1[nodeLvl1][1] + '%;width:' + coordsLvl1[nodeLvl1][2] + '%;height:' + coordsLvl1[nodeLvl1][3] + '%;"></a>';
             srcLvl2[nodeLvl1] = '<img src="' + contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
             for (var nodeLvl2 = 0; nodeLvl2 < lvl2Nodes[nodeLvl1].length; nodeLvl2++) {
                 coordsLvl2[nodeLvl1][nodeLvl2] = lvl2Nodes[nodeLvl1][nodeLvl2].split(',');
                 contentLvl2[nodeLvl1][nodeLvl2] = lvl2Data[nodeLvl1][nodeLvl2].split('||');
-                overlayLvl2[nodeLvl1][nodeLvl2] = '<a href="#" title="' + contentLvl2[nodeLvl1][nodeLvl2][0] + '" class="overlayPoint" id="node2_' + nodeLvl1 + "_" + nodeLvl2 + '" style="left:' + coordsLvl2[nodeLvl1][nodeLvl2][0] + 'px;top:' + coordsLvl2[nodeLvl1][nodeLvl2][1] + 'px;width:' + coordsLvl2[nodeLvl1][nodeLvl2][2] + 'px;height:' + coordsLvl2[nodeLvl1][nodeLvl2][3] + 'px;"></a>';
+                overlayLvl2[nodeLvl1][nodeLvl2] = '<a href="#" title="' + contentLvl2[nodeLvl1][nodeLvl2][0] + '" class="overlayPoint" id="node2_' + nodeLvl1 + "_" + nodeLvl2 + '" style="left:' + coordsLvl2[nodeLvl1][nodeLvl2][0] + '%;top:' + coordsLvl2[nodeLvl1][nodeLvl2][1] + '%;width:' + coordsLvl2[nodeLvl1][nodeLvl2][2] + '%;height:' + coordsLvl2[nodeLvl1][nodeLvl2][3] + '%;"></a>';
                 srcLvl3[nodeLvl1][nodeLvl2] = '<img src="' + contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
             }
         }
