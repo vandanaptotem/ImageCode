@@ -1264,21 +1264,36 @@ $(function(){
                 contentType: "application/javascript; charset=utf-8",
                 success: function (data) {
                     console.log("result of get_suspect_info");
+                    var name_and_relation;
                     console.log(data)
+                    $.each(data, function( index, value ) {
+//                        console.log(value["name"]);
+//                        console.log(value["relation"]);
+                        name_and_relation = value["name"] + ", " + value["relation"]
+                        suspectNames.push(name_and_relation);
+                        //suspectContext.push(value["relation"])
+                        suspectBios.push(value["information"]);
+                        suspectReactions.push(value["interrogate"]);
+//                        console.log(value["information"]);
+                    });
+
+
+
+
 
                 }
             });
 
-            $.ajax({
-                dataType: 'jsonp',
-                type: 'get',
-                url: 'http://192.168.2.37:3000/get_victim_info/'+case_id,
-                contentType: "application/javascript; charset=utf-8",
-                success: function (data) {
-                    console.log("result of get_victim_info");
-                    console.log(data)
-                }
-            });
+//            $.ajax({
+//                dataType: 'jsonp',
+//                type: 'get',
+//                url: 'http://192.168.2.37:3000/get_victim_info/'+case_id,
+//                contentType: "application/javascript; charset=utf-8",
+//                success: function (data) {
+//                    console.log("result of get_victim_info");
+//                    console.log(data)
+//                }
+//            });
 
         }
     });
@@ -1312,20 +1327,24 @@ var lvl2Data = [
     []
 ];
 
-var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
+//var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
+var suspectNames = [];
 var suspectPhotos = ['/assets/victim-kamal.jpg', '/assets/suspect-bhairav.jpg', '/assets/suspect-raju.jpg', '/assets/suspect-shanti.jpg', '/assets/suspect-rudra.jpg'];
-var suspectBios = ['A renowned barber in the village where he was loved and respected by all. He lost his wife at a young age and has worked hard to provide for his only daughter. His business has done quite well over the years but his debts seem to rise meteorically every year. He has some property and land to his name but holds it close to his heart and has promised never to let it go.',
-    'The only other barber in the village. Shrewd in business,he has always seen Kamal as a threat to his livelihood. He is extremely envious of Kamal\'s popularity. He is well known by the villagers for his mercurial nature. He seems quite well kempt for a villager..Not a hair out of place. ',
-    'A typical small town guy, always dreaming big but doing nothing about it. I don\'t know how he landed such a beauty of a wife and how she still tolerates him. He\'s known around the village for his chain smoking and pretty much wasting his time away. What a loser...',
-    'A loving daughter and a foolish yet supportive wife. She admired her husband\'s ambition and had started dreaming herself. She had grown distant from her father after getting married. I wonder how that old man allowed them to get married!',
-    'A notorious money lender known to have inflated interest rate and penchant for making examples out of defaulters. Had lent a small sum of money to Kamal a decade ago but has inflated his interests so much that the paid amount has exceeded 50 times its intitial value. A normal village loan shark I guess...A real scumbag'
-];
-var suspectReactions = ['',
-    'I\'m very sad at the loss of a fellow barber. Though we may not have seen each other eye to eye, I always respected him. This village is not very safe especially for us rich folk, that’s why I carry my equipment with me wherever I go.',
-    ' This is a cursed village. My beloved father-in-law\'s life has been taken away by some miscreant. I don\'t wish to live here anymore! I want to move out and goto the nearby city as soon as possible',
-    'I wonder who could do this to him. He had never wronged anyone in the village. I hope the killer burns in hell. I guess my husband and I will move someplace else and start over.',
-    'Why am I a suspect here? I am just a helpful money lender. What would I gain if my customers start dropping dead? In any case, I would not harm anybody, especially Kamal who everyone seems to adore. Besides I\'m a rich man, I was thinking of retiring soon.'
-];
+
+//var suspectBios = ['A renowned barber in the village where he was loved and respected by all. He lost his wife at a young age and has worked hard to provide for his only daughter. His business has done quite well over the years but his debts seem to rise meteorically every year. He has some property and land to his name but holds it close to his heart and has promised never to let it go.',
+//    'The only other barber in the village. Shrewd in business,he has always seen Kamal as a threat to his livelihood. He is extremely envious of Kamal\'s popularity. He is well known by the villagers for his mercurial nature. He seems quite well kempt for a villager..Not a hair out of place. ',
+//    'A typical small town guy, always dreaming big but doing nothing about it. I don\'t know how he landed such a beauty of a wife and how she still tolerates him. He\'s known around the village for his chain smoking and pretty much wasting his time away. What a loser...',
+//    'A loving daughter and a foolish yet supportive wife. She admired her husband\'s ambition and had started dreaming herself. She had grown distant from her father after getting married. I wonder how that old man allowed them to get married!',
+//    'A notorious money lender known to have inflated interest rate and penchant for making examples out of defaulters. Had lent a small sum of money to Kamal a decade ago but has inflated his interests so much that the paid amount has exceeded 50 times its intitial value. A normal village loan shark I guess...A real scumbag'
+//];
+var suspectBios = [];
+//var suspectReactions = ['',
+//    'I\'m very sad at the loss of a fellow barber. Though we may not have seen each other eye to eye, I always respected him. This village is not very safe especially for us rich folk, that’s why I carry my equipment with me wherever I go.',
+//    ' This is a cursed village. My beloved father-in-law\'s life has been taken away by some miscreant. I don\'t wish to live here anymore! I want to move out and goto the nearby city as soon as possible',
+//    'I wonder who could do this to him. He had never wronged anyone in the village. I hope the killer burns in hell. I guess my husband and I will move someplace else and start over.',
+//    'Why am I a suspect here? I am just a helpful money lender. What would I gain if my customers start dropping dead? In any case, I would not harm anybody, especially Kamal who everyone seems to adore. Besides I\'m a rich man, I was thinking of retiring soon.'
+//];
+var suspectReactions = [];
 
 /*-----------------------------------------*/
 /* Case Variables Initializer*/
