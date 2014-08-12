@@ -17,6 +17,21 @@ TimelineNoir::Application.routes.draw do
   match 'cases', to: 'welcome#mainpage', via: [:get, :post], :as=>"case_page"
   match 'cases_page', to: 'welcome#main', via: [:get, :post], :as=>"cases_pages"
 
+  match '/get_case_title/:case_id', to: 'welcome#get_case_title', via: [:get, :post], :as=>"get_case_title"
+  match '/get_case_info/:case_id', to: 'welcome#get_case_info', via: [:get, :post], :as=>"get_case_info"
+  match '/test_link', to: 'welcome#test_link', via: [:get, :post], :as=>"test_link"
+  match '/get_case_description/:case_id', to: 'welcome#get_case_description', via: [:get, :post], :as=>"get_case_description"
+  match '/get_suspect_info/:case_id', to: 'welcome#get_suspect_info', via: [:get, :post], :as=>"get_suspect_info"
+  match '/get_victim_info/:case_id', to: 'welcome#get_victim_info', via: [:get, :post], :as=>"get_victim_info"
+  match '/get_clue_info/:case_id', to: 'welcome#get_clue_info', via: [:get, :post], :as=>"get_clue_info"
+  match '/get_clue_crime_info/:case_id', to: 'welcome#get_clue_crime_info', via: [:get, :post], :as=>"get_clue_crime_info"
+  match '/get_clue_stmt_info/:case_id', to: 'welcome#get_clue_stmt_info', via: [:get, :post], :as=>"get_clue_stmt_info"
+  match '/get_child_cord/:case_id', to: 'welcome#get_child_cord', via: [:get, :post], :as=>"get_child_cord"
+  match '/get_children_data/:case_id', to: 'welcome#get_children_data', via: [:get, :post], :as=>"get_children_data"
+  match '/get_suspects_name/:case_id', to: 'welcome#get_suspects_name', via: [:get, :post], :as=>"get_suspects_name"
+  match '/get_images/:case_id', to: 'welcome#get_images', via: [:get, :post], :as=>"get_images"
+
+  match '/get_suspect_bios/:case_id', to: 'welcome#get_suspect_bios', via: [:get, :post], :as=>"get_suspect_bios"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

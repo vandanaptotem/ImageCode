@@ -19,5 +19,24 @@ module TimelineNoir
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.middleware.use Rack::JSONP
+
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '192.168.2.16'
+    #     resource %r{/get_case_title/\d+.json},
+    #              :headers => ['Origin', 'Accept', 'Content-Type'],
+    #              :methods => [:put, :delete]
+    #   end
+    # end
+
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
+    #   end
+    # end
+
+
   end
 end
