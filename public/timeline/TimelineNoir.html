@@ -10,7 +10,7 @@
     <link href="TimelineNoir_files/application.css" media="all" rel="stylesheet">
     <link href="TimelineNoir_files/bootstrap_002.css" media="all" rel="stylesheet">
     <link href="TimelineNoir_files/welcome.css" media="all" rel="stylesheet">
-    <script src="TimelineNoir_files/analytics.js" async=""></script>
+    <!--<script src="TimelineNoir_files/analytics.js" async=""></script>-->
     <script src="TimelineNoir_files/all.js" async="" id="facebook-jssdk"></script>
     <script src="TimelineNoir_files/jquery_004.js"></script>
     <script src="TimelineNoir_files/jquery_ujs.js"></script>
@@ -23,23 +23,23 @@
     <meta content="authenticity_token" name="csrf-param">
     <meta content="nhomkJYv4DNUCcxMxasy4Lx3Mont05qgF1atB7jC70c=" name="csrf-token">
 
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <!--<script>-->
+        <!--(function (i, s, o, g, r, a, m) {-->
+            <!--i['GoogleAnalyticsObject'] = r;-->
+            <!--i[r] = i[r] || function () {-->
+                <!--(i[r].q = i[r].q || []).push(arguments)-->
+            <!--}, i[r].l = 1 * new Date();-->
+            <!--a = s.createElement(o),-->
+                    <!--m = s.getElementsByTagName(o)[0];-->
+            <!--a.async = 1;-->
+            <!--a.src = g;-->
+            <!--m.parentNode.insertBefore(a, m)-->
+        <!--})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');-->
 
-        ga('create', 'UA-52508994-1', 'detectime.com');
-        ga('send', 'pageview');
+        <!--ga('create', 'UA-52508994-1', 'detectime.com');-->
+        <!--ga('send', 'pageview');-->
 
-    </script>
+    <!--</script>-->
 
     <style type="text/css">.fb_hidden {
         position: absolute;
@@ -731,7 +731,8 @@
                         <div class="row" id="charMenu"></div>
                         <div id="suspectPanel">
                             <div class="row">
-                                <div class="col-lg-4"><img src="TimelineNoir_files/a.html" id="suspectPhoto"></div>
+                                <!--<div class="col-lg-4"><img src="TimelineNoir_files/a.html" id="suspectPhoto"></div>-->
+                                <div class="col-lg-4"><img src="" id="suspectPhoto"></div>
                                 <div class="col-lg-7">
                                     <div class="row">
                                         <div id="suspectName"></div>
@@ -1242,10 +1243,10 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-
+var case_id = 3;
 $(function(){
 //    console.log("a");
-    var case_id = 3;
+
     $.ajax({
         dataType: 'jsonp',
         type: 'get',
@@ -1257,32 +1258,34 @@ $(function(){
             $("#case_title").text(data["name"]);
             $("#briefing").text(data["description"].replace(/(<([^>]+)>)/ig,"") );
 
-            $.ajax({
-                dataType: 'jsonp',
-                type: 'get',
-                    url: 'http://192.168.2.37:3000/get_suspect_info/'+case_id,
-                contentType: "application/javascript; charset=utf-8",
-                success: function (data) {
-                    console.log("result of get_suspect_info");
-                    var name_and_relation;
-                    console.log(data)
-                    $.each(data, function( index, value ) {
-//                        console.log(value["name"]);
-//                        console.log(value["relation"]);
-                        name_and_relation = value["name"] + ", " + value["relation"]
-                        suspectNames.push(name_and_relation);
-                        //suspectContext.push(value["relation"])
-                        suspectBios.push(value["information"]);
-                        suspectReactions.push(value["interrogate"]);
-//                        console.log(value["information"]);
-                    });
 
-
-
-
-
-                }
-            });
+//            $.ajax({
+//                dataType: 'jsonp',
+//                type: 'get',
+//                    url: 'http://192.168.2.37:3000/get_suspect_info/'+case_id,
+//                contentType: "application/javascript; charset=utf-8",
+//                success: function (data) {
+//                    suspectNames.push(value["name"]);
+////                    console.log("result of get_suspect_info");
+////                    var name_and_relation;
+////                    console.log(data)
+////                    $.each(data, function( index, value ) {
+//////                        console.log(value["name"]);
+//////                        console.log(value["relation"]);
+////                        name_and_relation = value["name"] + ", " + value["relation"]
+////                        suspectNames.push(name_and_relation);
+////                        //suspectContext.push(value["relation"])
+////                        suspectBios.push(value["information"]);
+////                        suspectReactions.push(value["interrogate"]);
+//////                        console.log(value["information"]);
+////                    });
+//
+//
+//
+//
+//
+//                }
+//            });
 
 //            $.ajax({
 //                dataType: 'jsonp',
@@ -1314,8 +1317,10 @@ $(function(){
 /* Case Input Structures Left,Top,Width,Height%*/
 /*-----------------------------------------*/
 
-var lvl1Nodes = ["60,70,30,25", "60,55,15,7", "85,50,12,14"];
-var lvl1Data = ["The body was found here...hmmm||clue-body.jpg||So this is where he breathed his last...I should have a closer look...", "The obvious murder weapon. Or is it?||clue-knife.jpg||A normal barber\'s blade...I wonder if there is anything unusual about it", "What\'s that on the ground?||clue-cigs.jpg||These cigarette butts doesn\'t look very old. Aren\'t cigarettes expensive in the village...I wonder who could afford them"];
+//var lvl1Nodes = ["60,70,30,25", "60,55,15,7", "85,50,12,14"];
+var lvl1Nodes = [];
+//var lvl1Data = ["The body was found here...hmmm||clue-body.jpg||So this is where he breathed his last...I should have a closer look...", "The obvious murder weapon. Or is it?||clue-knife.jpg||A normal barber\'s blade...I wonder if there is anything unusual about it", "What\'s that on the ground?||clue-cigs.jpg||These cigarette butts doesn\'t look very old. Aren\'t cigarettes expensive in the village...I wonder who could afford them"];
+var lvl1Data = [];
 var lvl2Nodes = [
     ["18,30,19,15", "73,31,13,10", "34,30,38,20"],
     ["10,44,51,15"],
@@ -1498,6 +1503,9 @@ function buildSuspects() {
         suspectListInit = true;
     }
     $('.suspectThumb img').on('click', function () {
+
+
+
         var index = $(this).attr("id").split('suspect')[1];
         $('#suspectPhoto').attr('src', suspectPhotos[index]);
         $('#suspectName').html(suspectNames[index].split(',')[0] + "<br/><span id='suspectContext'>" + suspectNames[index].split(',')[1] + "</span>");
@@ -1690,6 +1698,42 @@ $(function () {
     });
 
     $('.crimeSceneBtn .menuBtn').on('click', function () {
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_clue_crime_info_cord/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                lvl1Nodes = data;
+
+
+
+
+
+            }
+        });
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_clue_stmt_info/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                lvl1Data = data;
+
+
+
+
+
+            }
+        });
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#crimeScene').activatePanel();
             $('#panelTitle').html("Crime Scene");
@@ -1711,7 +1755,64 @@ $(function () {
         });
     });
     $('.charactersBtn .menuBtn').on('click', function () {
-        buildSuspects();
+            buildSuspects();
+
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspects_name/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectNames = data;
+
+
+
+
+
+               }
+           });
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspect_bios/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectBios = data;
+
+
+
+
+
+            }
+        });
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspect_sr/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectReactions = data;
+
+
+
+
+
+
+            }
+        });
+
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#panelTitle').html("Character Backgrounds");
             $('#characters').activatePanel();
@@ -1726,6 +1827,11 @@ $(function () {
 
     $('#interrogateEm').on('click', function () {
         $('#suspectReaction').fadeIn();
+
+
+
+
+
     });
 
     $('#caseFile').on('click', function () {
