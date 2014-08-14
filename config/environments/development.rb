@@ -30,10 +30,25 @@ TimelineNoir::Application.configure do
   #config.paperclip_defaults = {
   #    :storage => :s3,
   #    :s3_credentials => {
-  #        :bucket => ENV['S3_BUCKET_NAME'],
+  #        :bucket => "testnileshnoir",
   #        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
   #        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   #    }
   #}
+
+  config.paperclip_defaults = {
+      :url => ':s3_domain_url',
+      :path => ':class/:attachment/:id/:style/:filename',
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => 'testnileshnoir',
+          :access_key_id => 'AKIAIVTE5Z425I3HMDIA',
+          :secret_access_key => '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'
+      },
+      #:s3_credentials => "#{Rails.root}/config/aws.yml",
+      #:s3_permissions => :bucket_owner_full_control,
+      :s3_permissions => :private,
+      :s3_protocol => 'https'
+  }
 
 end
