@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>TimelineNoir</title>
 <!-- Latest compiled and minified CSS -->
@@ -46,6 +47,7 @@
     top: -10000px;
     z-index: 10001
 }
+
 
 .fb_invisible {
     display: none
@@ -687,13 +689,13 @@ style.firebugResetStyles {
         <img alt="Logo" id="logo" src="TimelineNoir_files/logo.png">
         <ul class="menu">
             <li class="crimeSceneBtn">
-                <img title="" oldtitle="Explore the Crime Scene" data-hasqtip="0"
+                <img title="Explore the Crime Scene" oldtitle="Explore the Crime Scene" data-hasqtip="0"
                      alt="Crimescene" class="menuBtn" src="TimelineNoir_files/crimescene.jpg">
             </li>
-            <li class="charactersBtn"><img title="" oldtitle="Interview the Suspects" data-hasqtip="1"
+            <li class="charactersBtn"><img title="Interview the Suspects" oldtitle="Interview the Suspects" data-hasqtip="1"
                                            alt="Characters" class="menuBtn" src="TimelineNoir_files/characters.jpg">
             </li>
-            <li class="caseBtn"><img title="" oldtitle="Solve the Case" data-hasqtip="2" alt="Brief" class="menuBtn"
+            <li class="caseBtn"><img title="Solve the Case" oldtitle="Solve the Case" data-hasqtip="2" alt="Brief" class="menuBtn"
                                      src="TimelineNoir_files/brief.jpg"></li>
         </ul>
 
@@ -852,6 +854,7 @@ style.firebugResetStyles {
                                 (on the contrary Evidence found on the victim's shirt was a
                                 Hair) <p>3 days ago</p></div>
                         </div>
+
                     </li>
                     <li class="prev_comments">
                         <div class="row">
@@ -868,6 +871,7 @@ style.firebugResetStyles {
                                 facing the consequences..thoughts of quick bucks through
                                 property of
                                 Kamal which would be inherited by his wife,..<p>3 days ago</p>
+
                             </div>
                         </div>
                     </li>
@@ -1240,11 +1244,13 @@ style.firebugResetStyles {
 
 </div>
 
+
 </div>
 
 <script type="text/javascript" charset="utf-8">
 var case_id = 4;
 $(function () {
+
     $.ajax({
         dataType: 'jsonp',
         type: 'get',
@@ -1258,9 +1264,6 @@ $(function () {
 
         }
     });
-
-
-//
 });
 /*-----------------------------------------*/
 /* Case Input Structures Left,Top,Width,Height%*/
@@ -1270,12 +1273,6 @@ $(function () {
 var lvl1Nodes = [];
 //var lvl1Data = ["The body was found here...hmmm||clue-body.jpg||So this is where he breathed his last...I should have a closer look...", "The obvious murder weapon. Or is it?||clue-knife.jpg||A normal barber\'s blade...I wonder if there is anything unusual about it", "What\'s that on the ground?||clue-cigs.jpg||These cigarette butts doesn\'t look very old. Aren\'t cigarettes expensive in the village...I wonder who could afford them"];
 var lvl1Data = [];
-//
-//var lvl2Nodes = [
-//    ["18,30,19,15", "73,31,13,10", "34,30,38,20"],
-//    ["10,44,51,15"],
-//    []
-//];
 var lvl2Nodes = [];
 
 //var lvl2Data = [
@@ -1286,20 +1283,24 @@ var lvl2Nodes = [];
 var lvl2Data = [];
 
 
-var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
+//var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
+var suspectNames = [];
 var suspectPhotos = ['/assets/victim-kamal.jpg', '/assets/suspect-bhairav.jpg', '/assets/suspect-raju.jpg', '/assets/suspect-shanti.jpg', '/assets/suspect-rudra.jpg'];
-var suspectBios = ['A renowned barber in the village where he was loved and respected by all. He lost his wife at a young age and has worked hard to provide for his only daughter. His business has done quite well over the years but his debts seem to rise meteorically every year. He has some property and land to his name but holds it close to his heart and has promised never to let it go.',
-    'The only other barber in the village. Shrewd in business,he has always seen Kamal as a threat to his livelihood. He is extremely envious of Kamal\'s popularity. He is well known by the villagers for his mercurial nature. He seems quite well kempt for a villager..Not a hair out of place. ',
-    'A typical small town guy, always dreaming big but doing nothing about it. I don\'t know how he landed such a beauty of a wife and how she still tolerates him. He\'s known around the village for his chain smoking and pretty much wasting his time away. What a loser...',
-    'A loving daughter and a foolish yet supportive wife. She admired her husband\'s ambition and had started dreaming herself. She had grown distant from her father after getting married. I wonder how that old man allowed them to get married!',
-    'A notorious money lender known to have inflated interest rate and penchant for making examples out of defaulters. Had lent a small sum of money to Kamal a decade ago but has inflated his interests so much that the paid amount has exceeded 50 times its intitial value. A normal village loan shark I guess...A real scumbag'
-];
-var suspectReactions = ['',
-    'I\'m very sad at the loss of a fellow barber. Though we may not have seen each other eye to eye, I always respected him. This village is not very safe especially for us rich folk, that’s why I carry my equipment with me wherever I go.',
-    ' This is a cursed village. My beloved father-in-law\'s life has been taken away by some miscreant. I don\'t wish to live here anymore! I want to move out and goto the nearby city as soon as possible',
-    'I wonder who could do this to him. He had never wronged anyone in the village. I hope the killer burns in hell. I guess my husband and I will move someplace else and start over.',
-    'Why am I a suspect here? I am just a helpful money lender. What would I gain if my customers start dropping dead? In any case, I would not harm anybody, especially Kamal who everyone seems to adore. Besides I\'m a rich man, I was thinking of retiring soon.'
-];
+
+//var suspectBios = ['A renowned barber in the village where he was loved and respected by all. He lost his wife at a young age and has worked hard to provide for his only daughter. His business has done quite well over the years but his debts seem to rise meteorically every year. He has some property and land to his name but holds it close to his heart and has promised never to let it go.',
+//    'The only other barber in the village. Shrewd in business,he has always seen Kamal as a threat to his livelihood. He is extremely envious of Kamal\'s popularity. He is well known by the villagers for his mercurial nature. He seems quite well kempt for a villager..Not a hair out of place. ',
+//    'A typical small town guy, always dreaming big but doing nothing about it. I don\'t know how he landed such a beauty of a wife and how she still tolerates him. He\'s known around the village for his chain smoking and pretty much wasting his time away. What a loser...',
+//    'A loving daughter and a foolish yet supportive wife. She admired her husband\'s ambition and had started dreaming herself. She had grown distant from her father after getting married. I wonder how that old man allowed them to get married!',
+//    'A notorious money lender known to have inflated interest rate and penchant for making examples out of defaulters. Had lent a small sum of money to Kamal a decade ago but has inflated his interests so much that the paid amount has exceeded 50 times its intitial value. A normal village loan shark I guess...A real scumbag'
+//];
+var suspectBios = [];
+//var suspectReactions = ['',
+//    'I\'m very sad at the loss of a fellow barber. Though we may not have seen each other eye to eye, I always respected him. This village is not very safe especially for us rich folk, that’s why I carry my equipment with me wherever I go.',
+//    ' This is a cursed village. My beloved father-in-law\'s life has been taken away by some miscreant. I don\'t wish to live here anymore! I want to move out and goto the nearby city as soon as possible',
+//    'I wonder who could do this to him. He had never wronged anyone in the village. I hope the killer burns in hell. I guess my husband and I will move someplace else and start over.',
+//    'Why am I a suspect here? I am just a helpful money lender. What would I gain if my customers start dropping dead? In any case, I would not harm anybody, especially Kamal who everyone seems to adore. Besides I\'m a rich man, I was thinking of retiring soon.'
+//];
+var suspectReactions = [];
 
 /*-----------------------------------------*/
 /* Case Variables Initializer*/
@@ -1454,6 +1455,9 @@ function buildSuspects() {
         suspectListInit = true;
     }
     $('.suspectThumb img').on('click', function () {
+
+
+
         var index = $(this).attr("id").split('suspect')[1];
         $('#suspectPhoto').attr('src', suspectPhotos[index]);
         $('#suspectName').html(suspectNames[index].split(',')[0] + "<br/><span id='suspectContext'>" + suspectNames[index].split(',')[1] + "</span>");
@@ -1646,7 +1650,7 @@ $(function () {
     });
 
     $('.crimeSceneBtn .menuBtn').on('click', function () {
-//
+
         $.ajax({
             dataType: 'jsonp',
             type: 'get',
@@ -1719,7 +1723,64 @@ $(function () {
         });
     });
     $('.charactersBtn .menuBtn').on('click', function () {
-        buildSuspects();
+            buildSuspects();
+
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspects_name/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectNames = data;
+
+
+
+
+
+               }
+           });
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspect_bios/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectBios = data;
+
+
+
+
+
+            }
+        });
+        $.ajax({
+
+            dataType: 'jsonp',
+            type: 'get',
+            url: 'http://192.168.2.37:3000/get_suspect_sr/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+
+                console.log("result of get_suspects_name");
+                console.log(data);
+                suspectReactions = data;
+
+
+
+
+
+
+            }
+        });
+
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#panelTitle').html("Character Backgrounds");
             $('#characters').activatePanel();
@@ -1734,6 +1795,11 @@ $(function () {
 
     $('#interrogateEm').on('click', function () {
         $('#suspectReaction').fadeIn();
+
+
+
+
+
     });
 
     $('#caseFile').on('click', function () {
@@ -1753,7 +1819,7 @@ $(function () {
     });
 
     $('.u_0_2').on('click', function () {
-        if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
+               if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
             fb_comment();
         }
         return false;
