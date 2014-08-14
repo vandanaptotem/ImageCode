@@ -1250,7 +1250,7 @@ $(function(){
     $.ajax({
         dataType: 'jsonp',
         type: 'get',
-        url: 'http://192.168.2.37:3000/get_case_info/'+case_id,
+        url: 'http://192.168.2.38:3000/get_case_info/'+case_id,
         contentType: "application/javascript; charset=utf-8",
         success: function (data) {
             console.log("result of get_case_info");
@@ -1702,7 +1702,7 @@ $(function () {
 
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_clue_crime_info_cord/' + case_id,
+            url: 'http://192.168.2.38:3000/get_clue_crime_info_cord/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
@@ -1720,7 +1720,7 @@ $(function () {
 
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_clue_stmt_info/' + case_id,
+            url: 'http://192.168.2.38:3000/get_clue_stmt_info/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
@@ -1761,7 +1761,7 @@ $(function () {
 
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspects_name/' + case_id,
+            url: 'http://192.168.2.38:3000/get_suspects_name/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
@@ -1774,7 +1774,7 @@ $(function () {
 
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspect_bios/' + case_id,
+            url: 'http://192.168.2.38:3000/get_suspect_bios/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
@@ -1787,7 +1787,7 @@ $(function () {
 
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspect_sr/' + case_id,
+            url: 'http://192.168.2.38:3000/get_suspect_sr/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
@@ -1830,32 +1830,29 @@ $(function () {
     });
 
     $('.u_0_2').on('click', function () {
-        var my_comment = [{"comment" : "my comment"}];
-        var data=my_comment;
+//        var my_comment = [{"comment" : "my comment"}];
+//        var data="name=anagha";
+
+        var user_comment = {
+            comment: $("#u_0_c").val()
+        };
+
         $.ajax({
             type:'POST',
-            url: 'http://192.168.2.37:3000/save_post',
-            data: data,
+            url: 'http://192.168.2.38:3000/save_post',
+//            data:  "u_0_c=" +u_0_c,
+            data: user_comment,
             datatype:'jsonp',
             success: function (data) {
-                console.log (data)
+             alert("success");
             }
-
-
         });
-
-
-
-
-
         if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
             fb_comment();
         }
         return false;
     });
-
     /* Code for the Phone*/
-
     $('.crimeSceneBtn .menuBtn-xs').on('click', function () {
         $('.casePanel-xs').animate({opacity: '0'}, '500', function () {
             $('#crimeScene-xs').activatePanel();
@@ -1867,7 +1864,6 @@ $(function () {
                     $('.crimeSceneOverlay.lvl1').append(elm);
                 });
                 overlayLvl2BindingsXs();
-
             }
             crimeSceneInit = true;
         });
@@ -1895,21 +1891,14 @@ $(function () {
             $('#header-xs').fadeOut();
         });
     });
-
     $('#interrogateEm-xs').on('click', function () {
         $(this).hide();
         $('#suspectProfile-xs').hide();
         $('#suspectReaction-xs').fadeIn();
     });
-
-
 })
 </script>
-
-
 <script src="TimelineNoir_files/jquery_002.js"></script>
-
-
 <div class=" fb_reset" id="fb-root">
     <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
         <div></div>
