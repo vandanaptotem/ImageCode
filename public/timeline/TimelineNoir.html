@@ -1244,13 +1244,14 @@ style.firebugResetStyles {
 
 <script type="text/javascript" charset="utf-8">
 var case_id = 4;
+var remote_host = "http://192.168.2.38:3000"
 $(function(){
 //    console.log("a");
 
     $.ajax({
         dataType: 'jsonp',
         type: 'get',
-        url: 'http://192.168.2.37:3000/get_case_info/'+case_id,
+        url: remote_host+'/get_case_info/'+case_id,
         contentType: "application/javascript; charset=utf-8",
         success: function (data) {
             console.log("result of get_case_info");
@@ -1258,60 +1259,10 @@ $(function(){
             $("#case_title").text(data["name"]);
             $("#briefing").text(data["description"].replace(/(<([^>]+)>)/ig,"") );
 
-
-//            $.ajax({
-//                dataType: 'jsonp',
-//                type: 'get',
-//                    url: 'http://192.168.2.37:3000/get_suspect_info/'+case_id,
-//                contentType: "application/javascript; charset=utf-8",
-//                success: function (data) {
-//                    suspectNames.push(value["name"]);
-////                    console.log("result of get_suspect_info");
-////                    var name_and_relation;
-////                    console.log(data)
-////                    $.each(data, function( index, value ) {
-//////                        console.log(value["name"]);
-//////                        console.log(value["relation"]);
-////                        name_and_relation = value["name"] + ", " + value["relation"]
-////                        suspectNames.push(name_and_relation);
-////                        //suspectContext.push(value["relation"])
-////                        suspectBios.push(value["information"]);
-////                        suspectReactions.push(value["interrogate"]);
-//////                        console.log(value["information"]);
-////                    });
-//
-//
-//
-//
-//
-//                }
-//            });
-
-//            $.ajax({
-//                dataType: 'jsonp',
-//                type: 'get',
-//                url: 'http://192.168.2.37:3000/get_victim_info/'+case_id,
-//                contentType: "application/javascript; charset=utf-8",
-//                success: function (data) {
-//                    console.log("result of get_victim_info");
-//                    console.log(data)
-//                }
-//            });
-
         }
     });
 
 
-//    var invocation = new XMLHttpRequest();
-//    var url = 'http://192.168.2.37:3000/test_link';
-//    var case_id = 3;
-//    callOtherDomain(case_id);
-//    function callOtherDomain(case_id) {
-//        if(invocation) {
-//            invocation.open('GET', url, true);
-//            invocation.send();
-//        }
-//    }
 });
 /*-----------------------------------------*/
 /* Case Input Structures Left,Top,Width,Height%*/
@@ -1699,41 +1650,29 @@ $(function () {
 
     $('.crimeSceneBtn .menuBtn').on('click', function () {
         $.ajax({
-
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_clue_crime_info_cord/' + case_id,
+            url: remote_host+'/get_clue_crime_info_cord/'+case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-
                 console.log("result of get_suspects_name");
                 console.log(data);
                 lvl1Nodes = data;
-
-
-
-
-
             }
         });
-        $.ajax({
 
+        $.ajax({
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_clue_stmt_info/' + case_id,
+            url: remote_host+'/get_clue_stmt_info/'+case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-
                 console.log("result of get_suspects_name");
                 console.log(data);
                 lvl1Data = data;
-
-
-
-
-
             }
         });
+
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#crimeScene').activatePanel();
             $('#panelTitle').html("Crime Scene");
@@ -1758,41 +1697,37 @@ $(function () {
         buildSuspects();
 
         $.ajax({
-
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspects_name/' + case_id,
+            url: remote_host+'/get_suspects_name/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-
 //                console.log("result of get_suspects_name");
 //                console.log(data);
                 suspectNames = data;
             }
         });
-        $.ajax({
 
+        $.ajax({
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspect_bios/' + case_id,
+            url: remote_host+'/get_suspect_bios/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-
-//                console.log("result of get_suspects_name");
-//                console.log(data);
+                //console.log("result of get_suspects_name");
+                //console.log(data);
                 suspectBios = data;
             }
         });
-        $.ajax({
 
+        $.ajax({
             dataType: 'jsonp',
             type: 'get',
-            url: 'http://192.168.2.37:3000/get_suspect_sr/' + case_id,
+            url: remote_host+'/get_suspect_sr/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-
-//                console.log("result of get_suspects_name");
-//                console.log(data);
+                //console.log("result of get_suspects_name");
+                //console.log(data);
                 suspectReactions = data;
             }
         });
@@ -1832,16 +1767,15 @@ $(function () {
     $('.u_0_2').on('click', function () {
         var my_comment = [{"comment" : "my comment"}];
         var data=my_comment;
+
         $.ajax({
             type:'POST',
-            url: 'http://192.168.2.37:3000/save_post',
+            url: remote_host+'/save_post',
             data: data,
             datatype:'jsonp',
             success: function (data) {
                 console.log (data)
             }
-
-
         });
 
 

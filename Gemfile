@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 557f979fe9fa0beaa061991062dbdb2abce57d9d
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
@@ -21,7 +24,10 @@ gem 'therubyracer'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 557f979fe9fa0beaa061991062dbdb2abce57d9d
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
@@ -49,4 +55,9 @@ gem "paperclip", "~> 4.1"
 gem "rails_admin"
 gem "gon"
 
+<<<<<<< HEAD
 gem 'aws-sdk'
+=======
+gem 'rack-jsonp-middleware', :require => 'rack/jsonp'
+gem 'rack-cors', :require => 'rack/cors'
+>>>>>>> 557f979fe9fa0beaa061991062dbdb2abce57d9d
