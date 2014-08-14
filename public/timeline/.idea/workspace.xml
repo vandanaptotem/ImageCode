@@ -26,8 +26,8 @@
       <file leaf-file-name="TimelineNoir.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimelineNoir.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6412429" vertical-offset="32576" max-vertical-offset="34812">
-              <caret line="1835" column="127" selection-start-line="1835" selection-start-column="127" selection-end-line="1835" selection-end-column="127" />
+            <state vertical-scroll-proportion="0.38700566" vertical-offset="31982" max-vertical-offset="35352">
+              <caret line="1792" column="36" selection-start-line="1792" selection-start-column="36" selection-end-line="1792" selection-end-column="36" />
               <folding>
                 <element signature="e#15269#18509#1" expanded="true" />
                 <element signature="e#18819#22847#1" expanded="true" />
@@ -46,7 +46,7 @@
                 <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+                <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -114,6 +114,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="timeline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="try" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timeline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TimelineNoir_files" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -212,7 +226,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1440" height="904" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -278,7 +292,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -305,7 +319,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -332,7 +346,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -359,7 +373,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -393,7 +407,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -424,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimelineNoir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6412429" vertical-offset="32576" max-vertical-offset="34812">
-          <caret line="1835" column="127" selection-start-line="1835" selection-start-column="127" selection-end-line="1835" selection-end-column="127" />
+        <state vertical-scroll-proportion="0.38700566" vertical-offset="31982" max-vertical-offset="35352">
+          <caret line="1792" column="36" selection-start-line="1792" selection-start-column="36" selection-end-line="1792" selection-end-column="36" />
           <folding>
             <element signature="e#15269#18509#1" expanded="true" />
             <element signature="e#18819#22847#1" expanded="true" />
@@ -444,7 +458,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1408006835156" expanded="true" signature="11219:11313" placeholder="{...}" />
+            <marker date="1408014633904" expanded="true" signature="11219:11313" placeholder="{...}" />
           </folding>
         </state>
       </provider>

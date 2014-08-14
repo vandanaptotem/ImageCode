@@ -1313,7 +1313,8 @@ var lvl2Data = [];
 
 //var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
 var suspectNames = [];
-var suspectPhotos = ['/assets/victim-kamal.jpg', '/assets/suspect-bhairav.jpg', '/assets/suspect-raju.jpg', '/assets/suspect-shanti.jpg', '/assets/suspect-rudra.jpg'];
+//var suspectPhotos = ['/assets/victim-kamal.jpg', '/assets/suspect-bhairav.jpg', '/assets/suspect-raju.jpg', '/assets/suspect-shanti.jpg', '/assets/suspect-rudra.jpg'];
+var suspectPhotos = [];
 
 //var suspectBios = ['A renowned barber in the village where he was loved and respected by all. He lost his wife at a young age and has worked hard to provide for his only daughter. His business has done quite well over the years but his debts seem to rise meteorically every year. He has some property and land to his name but holds it close to his heart and has promised never to let it go.',
 //    'The only other barber in the village. Shrewd in business,he has always seen Kamal as a threat to his livelihood. He is extremely envious of Kamal\'s popularity. He is well known by the villagers for his mercurial nature. He seems quite well kempt for a villager..Not a hair out of place. ',
@@ -1481,12 +1482,35 @@ function overlayLvl3BindingsXs() {
 
 function buildSuspects() {
     if (!suspectListInit) {
-        $('#charMenu').append('<div class="col-lg-' + (11 - suspectPhotos.length) + '"></div>');
-        for (i = 0; i < suspectPhotos.length; i++) {
-            $('#charMenu').append('<div class="col-lg-1 suspectThumb"><img src="' + suspectPhotos[i] + '" id="suspect' + i + '"/></div>');
-        }
-        suspectListInit = true;
+
+        $.ajax({
+            dataType: 'jsonp',
+            type: 'get',
+            url: remote_host+'/get_images/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+                console.log("result of get_images");
+                console.log(data)
+                suspectPhotos = data;
+                //console.log("suspectphoto"+data);
+
+                //$("#suspectPhoto").attr("src", remote_host + data);
+//
+            }
+        });
+        setTimeout(function(){
+            $('#charMenu').append('<div class="col-lg-' + (11 - suspectPhotos.length) + '"></div>');
+            for (i = 0; i < suspectPhotos.length; i++) {
+                console.log(suspectPhotos[i])
+                $('#charMenu').append('<div class="col-lg-1 suspectThumb"><img src="' + remote_host+suspectPhotos[i] + '" id="suspect' + i + '"/></div>');
+//            $('#charMenu').append('<div class="col-lg-1 suspectThumb"><img src=""/></div>');
+            }
+            suspectListInit = true;
+        }, 500);
+
+
     }
+
     $('.suspectThumb img').on('click', function () {
 
 
@@ -1756,7 +1780,7 @@ $(function () {
     });
 
     $('.charactersBtn .menuBtn').on('click', function () {
-        buildSuspects();
+
 
         $.ajax({
             dataType: 'jsonp',
@@ -1767,8 +1791,12 @@ $(function () {
 //                console.log("result of get_suspects_name");
 //                console.log(data);
                 suspectNames = data;
+//                suspectPhotos = data[1];
             }
         });
+
+//
+
         $.ajax({
             dataType: 'jsonp',
             type: 'get',
@@ -1793,10 +1821,12 @@ $(function () {
             }
         });
 
+        buildSuspects();
+
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#panelTitle').html("Character Backgrounds");
             $('#characters').activatePanel();
-            $('#suspectPhoto').attr('src', suspectPhotos[0]);
+            $('#suspectPhoto').attr('src', remote_host+suspectPhotos[0]);
             $('#suspectName').html(suspectNames[0].split(',')[0] + "<br/><span id='suspectContext'>" + suspectNames[0].split(',')[1] + "</span>");
             $('#suspectProfile').html(suspectBios[0]);
             $('#interrogateEm').hide();
