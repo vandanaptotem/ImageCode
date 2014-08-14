@@ -21,6 +21,11 @@ module TimelineNoir
     # config.i18n.default_locale = :de
     config.middleware.use Rack::JSONP
 
+    config.action_dispatch.default_headers.merge!({
+                                                      'Access-Control-Allow-Origin' => '*',
+                                                      'Access-Control-Request-Method' => '*'
+                                                  })
+
     # config.middleware.use Rack::Cors do
     #   allow do
     #     origins '192.168.2.16'
