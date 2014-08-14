@@ -1833,7 +1833,7 @@ $(function () {
             }
 
         });
-        var $sbmt = $radio + '<input type="submit" value="Submit">';
+        var $sbmt = '<input type="hidden" name="case_id" value='+case_id+'>' + $radio + '<input type="submit" value="Submit">';
         $("#guess_killer_form").html($sbmt);
 
         $('.casePanel').animate({opacity: '0'}, '500', function () {
