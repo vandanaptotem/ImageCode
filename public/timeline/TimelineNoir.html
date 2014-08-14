@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>TimelineNoir</title>
 <!-- Latest compiled and minified CSS -->
@@ -41,7 +42,8 @@
 
 <!--</script>-->
 
-<style type="text/css">.fb_hidden {
+<style type="text/css">
+.fb_hidden {
     position: absolute;
     top: -10000px;
     z-index: 10001
@@ -687,8 +689,8 @@ style.firebugResetStyles {
         <img alt="Logo" id="logo" src="TimelineNoir_files/logo.png">
         <ul class="menu">
             <li class="crimeSceneBtn">
-                <img title="Explore the Crime Scene " oldtitle="Explore the Crime Scene" data-hasqtip="0"
-                     alt="Crimescene" class="menuBtn" src="TimelineNoir_files/crimescene.jpg">
+
+                <img title="Explore the Crime Scene" oldtitle="Explore the Crime Scene" data-hasqtip="0" alt="Crimescene" class="menuBtn" src="TimelineNoir_files/crimescene.jpg">
             </li>
             <li class="charactersBtn"><img title="Interview the Suspects" oldtitle="Interview the Suspects" data-hasqtip="1"
                                            alt="Characters" class="menuBtn" src="TimelineNoir_files/characters.jpg">
@@ -717,9 +719,9 @@ style.firebugResetStyles {
 <div id="crimeScene" class="casePanel">
     <div class="row">
         <div class="col-lg-5 crimeSceneOverlay lvl1">
-            <img alt="Lvl1" src="TimelineNoir_files/lvl1.jpg">
-            <h4 class="clue">Explore the crime scene by hovering over the
-                photos and clicking on the interesting spots.</h4>
+
+            <img alt="Lvl1" id="case_main_image" src="">
+            <h4 class="clue" id="first_clue_comment"></h4>
         </div>
         <div class="col-lg-3 crimeSceneOverlay lvl2">
         </div>
@@ -852,25 +854,9 @@ style.firebugResetStyles {
                                 (on the contrary Evidence found on the victim's shirt was a
                                 Hair) <p>3 days ago</p></div>
                         </div>
+
                     </li>
-                    <li class="prev_comments">
-                        <div class="row">
-                            <div class="given_pic"><a href="https://www.facebook.com/1397376672"
-                                                      class="pull-right prev_comm"><img
-                                    src="TimelineNoir_files/picture_009.jpeg" alt=""></a></div>
-                            <div class="given_comment"><a class="fbName"
-                                                          href="https://www.facebook.com/1397376672">Karan
-                                Thakkar</a>
-                                Son-in-law...known for chain smoking which is an evidence found
-                                at the
-                                scene..also known to try and move out as soon as possible to
-                                avoid
-                                facing the consequences..thoughts of quick bucks through
-                                property of
-                                Kamal which would be inherited by his wife,..<p>3 days ago</p>
-                            </div>
-                        </div>
-                    </li>
+
                     <li class="prev_comments">
                         <div class="row">
                             <div class="given_pic"><a
@@ -1240,13 +1226,14 @@ style.firebugResetStyles {
 
 </div>
 
+
 </div>
 
 <script type="text/javascript" charset="utf-8">
 var case_id = 4;
-var remote_host = "http://192.168.2.38:3000"
+var remote_host = "http://192.168.2.38:3000";
+
 $(function(){
-//    console.log("a");
 
     $.ajax({
         dataType: 'jsonp',
@@ -1257,11 +1244,11 @@ $(function(){
             console.log("result of get_case_info");
             console.log(data);
             $("#case_title").text(data["name"]);
+
             $("#briefing").text(data["description"].replace(/(<([^>]+)>)/ig,"") );
 
         }
     });
-
 
 });
 /*-----------------------------------------*/
@@ -1270,18 +1257,26 @@ $(function(){
 
 //var lvl1Nodes = ["60,70,30,25", "60,55,15,7", "85,50,12,14"];
 var lvl1Nodes = [];
+
 //var lvl1Data = ["The body was found here...hmmm||clue-body.jpg||So this is where he breathed his last...I should have a closer look...", "The obvious murder weapon. Or is it?||clue-knife.jpg||A normal barber\'s blade...I wonder if there is anything unusual about it", "What\'s that on the ground?||clue-cigs.jpg||These cigarette butts doesn\'t look very old. Aren\'t cigarettes expensive in the village...I wonder who could afford them"];
 var lvl1Data = [];
-var lvl2Nodes = [
-    ["18,30,19,15", "73,31,13,10", "34,30,38,20"],
-    ["10,44,51,15"],
-    []
-];
-var lvl2Data = [
-    ["I think this is what killed him||clue-cut.jpg||Looks like the killer did quite a number on Kamal. Not an easy task with such a blade...Looks like the killer had used something similar before", "What's that mark on his finger?||clue-tan.jpg||Hmmm...A ring seems to be missing...Could it have been taken by the killer?", "What\'s this on his shirt?||clue-hair.jpg||Looks like hair, but doesn\'t seem to be his...Maybe one of his customers I guess...or could it be the killer\'s"],
-    ["Looks like something\'s carved on the handle||clue-kk.jpg||Hmmm...Looks like Kamal had a personalized blade..."],
-    []
-];
+
+
+//var lvl2Nodes = [
+//    ["18,30,19,15", "73,31,13,10", "34,30,38,20"],
+//    ["10,44,51,15"],
+//    []
+//];
+var lvl2Nodes = [];
+
+//var lvl2Data = [
+//    ["I think this is what killed him||clue-cut.jpg||Looks like the killer did quite a number on Kamal. Not an easy task with such a blade...Looks like the killer had used something similar before", "What's that mark on his finger?||clue-tan.jpg||Hmmm...A ring seems to be missing...Could it have been taken by the killer?", "What\'s this on his shirt?||clue-hair.jpg||Looks like hair, but doesn\'t seem to be his...Maybe one of his customers I guess...or could it be the killer\'s"],
+//    ["Looks like something is carved on the handle||clue-kk.jpg||Hmmm...Looks like Kamal had a personalized blade..."],
+//    []
+//];
+var lvl2Data = [];
+
+
 
 //var suspectNames = ['Kamal Kumar, Victim', 'Bhairav Thakur, Barber', 'Raju Kishan, Kamal\'s son-in-law', 'Shanti Kishan, Kamal\'s daughter', 'Rudra Chauhan, Loan Shark'];
 var suspectNames = [];
@@ -1340,13 +1335,17 @@ function createCrimeScene() {
     for (var nodeLvl1 = 0; nodeLvl1 < lvl1Nodes.length; nodeLvl1++) {
         coordsLvl1[nodeLvl1] = lvl1Nodes[nodeLvl1].split(',');
         contentLvl1[nodeLvl1] = lvl1Data[nodeLvl1].split('||');
+        console.log("contentLvl1[nodeLvl1][1] :- " + (remote_host+contentLvl1[nodeLvl1][1]).replace(" ",""));
         overlayLvl1[nodeLvl1] = '<a href="#" title="' + contentLvl1[nodeLvl1][0] + '" class="overlayPoint" id="node1' + nodeLvl1 + '" style="left:' + coordsLvl1[nodeLvl1][0] + '%;top:' + coordsLvl1[nodeLvl1][1] + '%;width:' + coordsLvl1[nodeLvl1][2] + '%;height:' + coordsLvl1[nodeLvl1][3] + '%;"></a>';
-        srcLvl2[nodeLvl1] = '<img src="/assets/' + contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
+        //srcLvl2[nodeLvl1] = '<img src="/assets/' + contentLvl1[nodeLvl1][1] + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
+        srcLvl2[nodeLvl1] = '<img src="' + (remote_host+contentLvl1[nodeLvl1][1]).replace(" ","") + '"/><h4 class="clue">' + contentLvl1[nodeLvl1][2] + '</h4>';
         for (var nodeLvl2 = 0; nodeLvl2 < lvl2Nodes[nodeLvl1].length; nodeLvl2++) {
             coordsLvl2[nodeLvl1][nodeLvl2] = lvl2Nodes[nodeLvl1][nodeLvl2].split(',');
             contentLvl2[nodeLvl1][nodeLvl2] = lvl2Data[nodeLvl1][nodeLvl2].split('||');
             overlayLvl2[nodeLvl1][nodeLvl2] = '<a href="#" title="' + contentLvl2[nodeLvl1][nodeLvl2][0] + '" class="overlayPoint" id="node2_' + nodeLvl1 + "_" + nodeLvl2 + '" style="left:' + coordsLvl2[nodeLvl1][nodeLvl2][0] + '%;top:' + coordsLvl2[nodeLvl1][nodeLvl2][1] + '%;width:' + coordsLvl2[nodeLvl1][nodeLvl2][2] + '%;height:' + coordsLvl2[nodeLvl1][nodeLvl2][3] + '%;"></a>';
-            srcLvl3[nodeLvl1][nodeLvl2] = '<img src="/assets/' + contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
+            console.log("contentLvl2[nodeLvl1][nodeLvl2][1] :- " + (remote_host+contentLvl2[nodeLvl1][nodeLvl2][1]).replace(" ",""));
+            //srcLvl3[nodeLvl1][nodeLvl2] = '<img src="/assets/' + contentLvl2[nodeLvl1][nodeLvl2][1] + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
+            srcLvl3[nodeLvl1][nodeLvl2] = '<img src="' + (remote_host+contentLvl2[nodeLvl1][nodeLvl2][1]).replace(" ","") + '"/><h4 class="clue">' + contentLvl2[nodeLvl1][nodeLvl2][2] + '</h4>';
         }
     }
 }
@@ -1649,29 +1648,57 @@ $(function () {
     });
 
     $('.crimeSceneBtn .menuBtn').on('click', function () {
+
         $.ajax({
             dataType: 'jsonp',
             type: 'get',
-            url: remote_host+'/get_clue_crime_info_cord/'+case_id,
+            url: remote_host+'/get_clue_stmt_info/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-                console.log("result of get_suspects_name");
+                console.log("result of get_clue_stmt_info ");
                 console.log(data);
-                lvl1Nodes = data;
+                //console.log(data[0]); //image hover text
+                lvl1Data = data[0];
+                //console.log(data[1]); // image url
+                $("#case_main_image").attr("src", remote_host + data[1]);
+
+                console.log("lvl1Nodes :-" + data[2]); //cordinates
+                lvl1Nodes = data[2];
+
+                //console.log(data[3]); //comment
+
+                $("#first_clue_comment").text(data[3]);
+
+
             }
         });
 
         $.ajax({
             dataType: 'jsonp',
             type: 'get',
-            url: remote_host+'/get_clue_stmt_info/'+case_id,
+            url: remote_host+'/get_child_cord/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-                console.log("result of get_suspects_name");
+                console.log("result of get_child_cord");
                 console.log(data);
-                lvl1Data = data;
+//                console.log(data[1]);
+                lvl2Nodes = data;
+            }
+
+        });
+
+        $.ajax({
+            dataType: 'jsonp',
+            type: 'get',
+            url: remote_host+'/get_children_data/' + case_id,
+            contentType: "application/javascript; charset=utf-8",
+            success: function (data) {
+                console.log("result of get_children_data");
+                console.log(data);
+                lvl2Data = data
             }
         });
+
 
         $('.casePanel').animate({opacity: '0'}, '500', function () {
             $('#crimeScene').activatePanel();
@@ -1693,6 +1720,7 @@ $(function () {
             crimeSceneInit = true;
         });
     });
+
     $('.charactersBtn .menuBtn').on('click', function () {
         buildSuspects();
 
@@ -1777,9 +1805,6 @@ $(function () {
                 console.log (data)
             }
         });
-
-
-
 
 
         if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
