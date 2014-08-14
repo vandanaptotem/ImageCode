@@ -1730,9 +1730,11 @@ $(function () {
             url: remote_host+'/get_suspects_name/' + case_id,
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
-//                console.log("result of get_suspects_name");
-//                console.log(data);
+                console.log("result of get_suspects_name");
+                console.log(data);
                 suspectNames = data;
+                console.log("suspectNames :- " + suspectNames[0].split(',')[0])
+                console.log("suspectNames :- " + suspectNames[0].split(',')[2])
             }
         });
 
