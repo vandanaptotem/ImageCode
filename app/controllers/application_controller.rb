@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :cors_preflight_check
   after_filter :cors_set_access_control_headers
 
-  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.include? 'application/json' }
-  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  # protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.include? 'application/json' }
+  # skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
 # For all responses in this controller, return the CORS access control headers.
 

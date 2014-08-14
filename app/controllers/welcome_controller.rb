@@ -204,7 +204,7 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.js do
         @case = CaseInfo.find(params[:case_id][0])
-        @statement=@case.clue_infos.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" }
+        @statement=@case.clue_infos.map { |i| "#{i.hover}|| #{i.image.url}|| #{i.info}" }
         @cord= @case.clue_infos.map { |i| "#{i.cord_x}, #{i.cord_y}, #{i.cord_z}, #{i.cord_w}" }
         @crime_scene = @case.crime_scenes.first
         @url=@crime_scene.image.url
@@ -231,7 +231,7 @@ end
     respond_to do |format|
       format.js do
         @case = CaseInfo.find(params[:case_id][0])
-        @child_data=@case.clue_infos.map { |i| i.children.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" } }
+        @child_data=@case.clue_infos.map { |i| i.children.map { |i| "#{i.hover}|| #{i.image.url}|| #{i.info}" } }
         render :json=>@child_data, :callback => params[:callback]
         # return
         # return
@@ -312,14 +312,12 @@ end
   def save_post
     respond_to do |format|
       format.js do
-        # Inquiry.create(:question_id=>@question.id.to_i, :respondent_id=>res.id.to_i)
-        # @name = params[:name]
-        #  Case.update(:name => @name).save
-        render :json => params
-        return
+        @name = params[:comment]
+        @case = Case.create!(:name => @name)
+        @case.save!
+        render :json => @case
       end
     end
-    # comments.create(:type=>'BMW',:colour=>"blue")
 
   end
 
