@@ -32,7 +32,7 @@
       <file leaf-file-name="TimelineNoir.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/timeline/TimelineNoir.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1928" column="7" selection-start="84315" selection-end="84315" vertical-scroll-proportion="0.9460432" vertical-offset="28394" max-vertical-offset="29010">
+            <state line="1912" column="36" selection-start="83403" selection-end="83403" vertical-scroll-proportion="0.5143885" vertical-offset="28394" max-vertical-offset="29010">
               <folding>
                 <element signature="e#15267#18507#1" expanded="true" />
                 <element signature="e#18817#22845#1" expanded="true" />
@@ -52,6 +52,7 @@
                 <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1407993867300" expanded="true" signature="11217:11311" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -719,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/timeline/TimelineNoir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1928" column="7" selection-start="84315" selection-end="84315" vertical-scroll-proportion="0.9460432" vertical-offset="28394" max-vertical-offset="29010">
+        <state line="1912" column="36" selection-start="83403" selection-end="83403" vertical-scroll-proportion="0.5143885" vertical-offset="28394" max-vertical-offset="29010">
           <folding>
             <element signature="e#15267#18507#1" expanded="true" />
             <element signature="e#18817#22845#1" expanded="true" />
@@ -739,6 +740,7 @@
             <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1407993867300" expanded="true" signature="11217:11311" placeholder="{...}" />
           </folding>
         </state>
       </provider>
