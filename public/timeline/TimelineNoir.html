@@ -48,7 +48,6 @@
     z-index: 10001
 }
 
-
 .fb_invisible {
     display: none
 }
@@ -683,6 +682,7 @@ style.firebugResetStyles {
 
 
 <div class="row visible-lg visible-md">
+
 <div class="col-lg-2" id="aside">
     <div id="asideBack"></div>
     <div id="asideFront">
@@ -692,12 +692,15 @@ style.firebugResetStyles {
                 <img title="Explore the Crime Scene" oldtitle="Explore the Crime Scene" data-hasqtip="0"
                      alt="Crimescene" class="menuBtn" src="TimelineNoir_files/crimescene.jpg">
             </li>
-            <li class="charactersBtn"><img title="Interview the Suspects" oldtitle="Interview the Suspects" data-hasqtip="1"
+            <li class="charactersBtn"><img title="Interview the Suspects" oldtitle="Interview the Suspects"
+                                           data-hasqtip="1"
                                            alt="Characters" class="menuBtn" src="TimelineNoir_files/characters.jpg">
             </li>
-            <li class="caseBtn"><img title="Solve the Case" oldtitle="Solve the Case" data-hasqtip="2" alt="Brief" class="menuBtn"
+            <li class="caseBtn"><img title="Solve the Case" oldtitle="Solve the Case" data-hasqtip="2" alt="Brief"
+                                     class="menuBtn"
                                      src="TimelineNoir_files/brief.jpg"></li>
         </ul>
+
 
     </div>
 </div>
@@ -1249,7 +1252,9 @@ style.firebugResetStyles {
 
 <script type="text/javascript" charset="utf-8">
 var case_id = 4;
+
 $(function () {
+
 
     $.ajax({
         dataType: 'jsonp',
@@ -1353,7 +1358,7 @@ function createCrimeScene() {
 
 function overlayLvl2Bindings() {
     $("[id^=node1]").on('click', function () {
-        
+
         var branch = parseInt($(this).attr("id").split("node1")[1]);
         var $lvl2 = $('.crimeSceneOverlay.lvl2');
         var $lvl3 = $('.crimeSceneOverlay.lvl3');
@@ -1455,7 +1460,6 @@ function buildSuspects() {
         suspectListInit = true;
     }
     $('.suspectThumb img').on('click', function () {
-
 
 
         var index = $(this).attr("id").split('suspect')[1];
@@ -1723,7 +1727,7 @@ $(function () {
         });
     });
     $('.charactersBtn .menuBtn').on('click', function () {
-            buildSuspects();
+        buildSuspects();
 
         $.ajax({
 
@@ -1733,16 +1737,11 @@ $(function () {
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
-                console.log("result of get_suspects_name");
-                console.log(data);
+//                console.log("result of get_suspects_name");
+//                console.log(data);
                 suspectNames = data;
-
-
-
-
-
-               }
-           });
+            }
+        });
         $.ajax({
 
             dataType: 'jsonp',
@@ -1751,14 +1750,9 @@ $(function () {
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
-                console.log("result of get_suspects_name");
-                console.log(data);
+//                console.log("result of get_suspects_name");
+//                console.log(data);
                 suspectBios = data;
-
-
-
-
-
             }
         });
         $.ajax({
@@ -1769,15 +1763,9 @@ $(function () {
             contentType: "application/javascript; charset=utf-8",
             success: function (data) {
 
-                console.log("result of get_suspects_name");
-                console.log(data);
+//                console.log("result of get_suspects_name");
+//                console.log(data);
                 suspectReactions = data;
-
-
-
-
-
-
             }
         });
 
@@ -1795,11 +1783,6 @@ $(function () {
 
     $('#interrogateEm').on('click', function () {
         $('#suspectReaction').fadeIn();
-
-
-
-
-
     });
 
     $('#caseFile').on('click', function () {
@@ -1819,9 +1802,11 @@ $(function () {
     });
 
     $('.u_0_2').on('click', function () {
-               if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
+
+        if ($('#u_0_c').val() != "" || $('#u_0_c-xs').val() != "") {
+
             fb_comment();
-        }
+                   }
         return false;
     });
 
