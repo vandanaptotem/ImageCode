@@ -49,3 +49,8 @@ gem "gon"
 
 gem 'rack-jsonp-middleware', :require => 'rack/jsonp'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'yaml_db'
+gem 'mysql'
+# gem 'mysql2','0.2.7'
+# gem 'mysql', '~> 2.9.1'
+# gem 'mysql2', '~> 0.3.13'
