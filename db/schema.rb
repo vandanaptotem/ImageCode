@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724120729) do
+ActiveRecord::Schema.define(version: 20140815181433) do
 
   create_table "case_infos", force: true do |t|
     t.string   "name"
@@ -59,6 +59,23 @@ ActiveRecord::Schema.define(version: 20140724120729) do
     t.integer  "clue_info_id"
   end
 
+  create_table "comment_data", force: true do |t|
+    t.integer  "user_id"
+    t.text     "comments"
+    t.integer  "case_id"
+    t.integer  "suspect_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "user_name"
+    t.text     "comments"
+    t.integer  "case_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "crime_scenes", force: true do |t|
     t.text     "comments"
     t.datetime "created_at"
@@ -67,8 +84,13 @@ ActiveRecord::Schema.define(version: 20140724120729) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "case_id"
     t.integer  "case_info_id"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "ratings"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "suspect_infos", force: true do |t|
@@ -76,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140724120729) do
     t.text     "interrogate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "crime_scene_id"
     t.integer  "case_info_id"
     t.string   "relation"
     t.text     "information"

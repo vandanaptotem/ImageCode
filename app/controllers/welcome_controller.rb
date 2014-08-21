@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+
   def index
     @case_id = CaseInfo.find(3)
 
@@ -204,7 +205,7 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.js do
         @case = CaseInfo.find(params[:case_id][0])
-        @statement=@case.clue_infos.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" }
+        @statement=@case.clue_infos.map { |i| "#{i.hover}|| #{i.image.url}|| #{i.info}" }
         @cord= @case.clue_infos.map { |i| "#{i.cord_x}, #{i.cord_y}, #{i.cord_z}, #{i.cord_w}" }
         @crime_scene = @case.crime_scenes.first
         @url=@crime_scene.image.url
@@ -231,7 +232,7 @@ end
     respond_to do |format|
       format.js do
         @case = CaseInfo.find(params[:case_id][0])
-        @child_data=@case.clue_infos.map { |i| i.children.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" } }
+        @child_data=@case.clue_infos.map { |i| i.children.map { |i| "#{i.hover}|| #{i.image.url}|| #{i.info}" } }
         render :json=>@child_data, :callback => params[:callback]
         # return
         # return
@@ -243,23 +244,25 @@ end
     respond_to do |format|
       format.js do
         @case = CaseInfo.find(params[:case_id][0])
-        @suspects_name=[@case.victim_infos.first.name+ ", Victim"] + @case.suspect_infos.map { |i| "#{i.name}, #{i.relation}" }
+        @images = [@case.victim_infos.first.image.url] + @case.suspect_infos.map { |i| i.image.url }
+        @suspects_name=[@case.victim_infos.first.name+ ",Victim, #{@case.victim_infos.first.id}"] + @case.suspect_infos.map { |i| "#{i.name}, #{i.relation},#{i.id}" }
+        @comb = @suspects_name, @images
         render :json=>@suspects_name, :callback => params[:callback]
-        # return
-        # return
+        return
+        return
       end
     end
   end
   def get_images           # for variable suspectPhotos
-    # respond_to do |format|
-    #   format.js do
+    respond_to do |format|
+      format.js do
         @case = CaseInfo.find(params[:case_id][0])
         @images = [@case.victim_infos.first.image.url] + @case.suspect_infos.map { |i| i.image.url }
         render :json=>@images, :callback => params[:callback]
         # return
         # return
-    #   end
-    # end
+      end
+    end
   end
   def get_suspect_bios     # for variable suspectBios
     # respond_to do |format|
@@ -312,16 +315,31 @@ end
   def save_post
     respond_to do |format|
       format.js do
-        # Inquiry.create(:question_id=>@question.id.to_i, :respondent_id=>res.id.to_i)
-        # @name = params[:name]
-        #  Case.update(:name => @name).save
-        render :json => params
+        @name = params[:comment]
+        @case = Case.create!(:name => @name)
+        @case.save!
+        render :json => @case
+      end
+    end
+
+  end
+  def save_comments
+
+    respond_to do |format|
+      format.js do
+        @case= params[:case_id]
+        @user_id = 1
+
+        @suspect_id = params[:suspect_id]
+        @user = CommentData.find_by(user_id:1)
+        @user.update(:suspect_id => @suspect_id)
+        # @comment_data = CommentData.create!(:user_id => @user_id, :suspect_id => @suspect_id, :case_id => @case)
+        @user.save!
+        render :json => @user
         return
       end
     end
-    # comments.create(:type=>'BMW',:colour=>"blue")
 
   end
 
   end
-#

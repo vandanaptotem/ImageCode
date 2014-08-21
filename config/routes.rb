@@ -35,7 +35,8 @@ TimelineNoir::Application.routes.draw do
   match '/get_clue_image_comments/:case_id', to: 'welcome#get_clue_image_comments', via: [:get, :post], :as=>"get_clue_image_comments"
   match '/get_clue_image_url/:case_id', to: 'welcome#get_clue_image_url', via: [:get, :post], :as=>"get_clue_image_url"
   match '/save_post', to: 'welcome#save_post', via: [:post], :as=>"save_post"
-
+  # match '/get_clue_image_url/:case_id', to: 'welcome#get_clue_image_url', via: [:get, :post], :as=>"get_clue_image_url"
+  match '/save_comments', to: 'welcome#save_comments', via: [:post], :as=>"save_comments"
   # match "/helpcenter" => "forums#create", :via => :post, :as => :create_forum
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

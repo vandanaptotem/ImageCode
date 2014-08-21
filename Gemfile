@@ -55,3 +55,4 @@ gem 'aws-sdk'
 gem 'rack-jsonp-middleware', :require => 'rack/jsonp'
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'mysql2'
