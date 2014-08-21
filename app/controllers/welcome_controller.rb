@@ -156,8 +156,8 @@ class WelcomeController < ApplicationController
   def get_case_description    # for Case Description in id=briefing line no 27
     respond_to do |format|
       format.js do
-      @case = CaseInfo.find(params[:case_id][0])
-    render :json => @case.description, :callback => params[:callback]
+        @case = CaseInfo.find(params[:case_id][0])
+        render :json => @case.description, :callback => params[:callback]
       end
     end
     # return

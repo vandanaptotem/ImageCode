@@ -37,7 +37,7 @@ TimelineNoir::Application.configure do
   #}
 
   config.paperclip_defaults = {
-      :url => ':s3_domain_url',
+      :url => ":s3_domain_url",
       :path => ':class/:attachment/:id/:style/:filename',
       :storage => :s3,
       :s3_credentials => {
@@ -46,9 +46,9 @@ TimelineNoir::Application.configure do
           :secret_access_key => '6rRgWLnHtGj1oB3f9RaAZfoq8Pcl20PElvt3WKfR'
       },
       #:s3_credentials => "#{Rails.root}/config/aws.yml",
-      #:s3_permissions => :bucket_owner_full_control,
-      :s3_permissions => :private,
-      :s3_protocol => 'https'
+      :s3_permissions => :bucket_owner_full_control,
+      #:s3_permissions => 'authenticated-read',
+      :s3_protocol => 'http'
   }
 
 end
