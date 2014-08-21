@@ -119,4 +119,209 @@ class WelcomeController < ApplicationController
     @case_info=CaseInfo.all
   end
 
+
+
+
+
+  def test_link
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(3)
+        render :json => @case, :callback => params[:callback]
+      end
+    end
+  end
+
+  def get_case_title
+    # @case = CaseInfo.find(3)
+    # render :json => @case.name,:callback => params[:callback]
+    # return
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(3)
+        render :json => @case, :callback => params[:callback]
+      end
+    end
+  end
+
+  def get_case_info         # for Case Name  in id caseName row line no 22
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        render :json => @case, :callback => params[:callback]
+      end
+    end
+  end
+
+  def get_case_description    # for Case Description in id=briefing line no 27
+    respond_to do |format|
+      format.js do
+      @case = CaseInfo.find(params[:case_id][0])
+    render :json => @case.description, :callback => params[:callback]
+      end
+    end
+    # return
+  end
+
+
+  def get_suspect_info
+    respond_to do |format|
+      format.js do
+        @case_suspect_info = CaseInfo.find(params[:case_id][0]).suspect_infos
+        # @suspect_array = Array.new()
+        # @case.suspect_infos.each do |suspect|
+        #   @suspect_array << "#{suspect.name}||#{suspect.relation}||#{suspect.interrogate}||#{suspect.information}||#{suspect.image.url}"
+        # end
+        render :json=>@case_suspect_info, :callback => params[:callback]
+        # return
+        # render :json=>@case, :callback => params[:callback]
+      end
+    end
+  end
+  def get_clue_info
+    respond_to do |format|
+      format.js do
+        @clue_data = CaseInfo.find(params[:case_id][0]).crime_scenes
+        render :json=>@clue_data, :callback => params[:callback]
+    # return
+      end
+    end
+  end
+
+  def get_clue_crime_info_cord  # for variable lvl1Nodes
+    # respond_to do |format|
+    #   format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @crimescene=CrimeScene.all
+        @cord= @case.clue_infos.map { |i| "#{i.cord_x}, #{i.cord_y}, #{i.cord_z}, #{i.cord_w}" }
+        render :json=>@cord, :callback => params[:callback]
+        return
+    #   end
+    # end
+  end
+
+  def get_clue_stmt_info   # for variable lvl1Data
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @statement=@case.clue_infos.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" }
+        @cord= @case.clue_infos.map { |i| "#{i.cord_x}, #{i.cord_y}, #{i.cord_z}, #{i.cord_w}" }
+        @crime_scene = @case.crime_scenes.first
+        @url=@crime_scene.image.url
+        @crime_scene = @case.crime_scenes.first
+        @comments=@crime_scene.comments
+        @comb = @statement, @url, @cord, @comments
+        render :json=>@comb, :callback => params[:callback]
+        # return
+      end
+    end
 end
+  def get_child_cord       # for variable lvl2Nodes
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @childcord=@case.clue_infos.map { |i| i.children.map { |i| "#{i.cord_x}, #{i.cord_y}, #{i.cord_z}, #{i.cord_w}" } }
+        render :json=>@childcord, :callback => params[:callback]
+        # return
+         # return
+      end
+      end
+  end
+  def get_children_data    # for variable lvl2Data
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @child_data=@case.clue_infos.map { |i| i.children.map { |i| "#{i.hover}|| #{"http://192.168.2.37:3000"+i.image.url}|| #{i.info}" } }
+        render :json=>@child_data, :callback => params[:callback]
+        # return
+        # return
+      end
+    end
+  end
+
+  def get_suspects_name    # for variable suspectNames
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @suspects_name=[@case.victim_infos.first.name+ ", Victim"] + @case.suspect_infos.map { |i| "#{i.name}, #{i.relation}" }
+        render :json=>@suspects_name, :callback => params[:callback]
+        # return
+        # return
+      end
+    end
+  end
+  def get_images           # for variable suspectPhotos
+    # respond_to do |format|
+    #   format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @images = [@case.victim_infos.first.image.url] + @case.suspect_infos.map { |i| i.image.url }
+        render :json=>@images, :callback => params[:callback]
+        # return
+        # return
+    #   end
+    # end
+  end
+  def get_suspect_bios     # for variable suspectBios
+    # respond_to do |format|
+    #   format.js do
+    @case = CaseInfo.find(params[:case_id][0])
+    @suspect_bios=[@case.victim_infos.first.info] + @case.suspect_infos.map { |i| i.information }
+    render :json=>@suspect_bios, :callback => params[:callback]
+    return
+    # return
+    #   end
+    # end
+  end
+  def get_suspect_sr       # for variable suspectReactions
+    respond_to do |format|
+      format.js do
+    @case = CaseInfo.find(params[:case_id][0])
+    @suspect_sr=['']+ @case.suspect_infos.map { |i| i.interrogate }
+    render :json=>@suspect_sr, :callback => params[:callback]
+    # return
+    # return
+      end
+    end
+  end
+
+  def get_clue_image_comments       # in place of  <div class="col-lg-5 crimeSceneOverlay lvl1">
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @crime_scene = @case.crime_scenes.first
+
+        render :json=>@crime_scene, :callback => params[:callback]
+        # return
+        # return
+      end
+    end
+  end
+  def get_clue_image_url       # in place of  <div class="col-lg-5 crimeSceneOverlay lvl1">
+    respond_to do |format|
+      format.js do
+        @case = CaseInfo.find(params[:case_id][0])
+        @crime_scene = @case.crime_scenes.first
+        @url=@crime_scene.image.url
+        render :json=>@url, :callback => params[:callback]
+        # return
+        # return
+      end
+    end
+  end
+
+  def save_post
+    respond_to do |format|
+      format.js do
+        # Inquiry.create(:question_id=>@question.id.to_i, :respondent_id=>res.id.to_i)
+        # @name = params[:name]
+        #  Case.update(:name => @name).save
+        render :json => params
+        return
+      end
+    end
+    # comments.create(:type=>'BMW',:colour=>"blue")
+
+  end
+
+  end
+#
