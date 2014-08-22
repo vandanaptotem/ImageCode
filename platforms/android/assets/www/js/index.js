@@ -24,7 +24,7 @@ function onDeviceReady() {
 
 
 var case_id = 4;
-var remote_host = "http://192.168.2.8:3000";
+var remote_host = "http://192.168.2.40:3000";
 
 /*-----------------------------------------*/
 /* Case Input Structures Left,Top,Width,Height%*/
