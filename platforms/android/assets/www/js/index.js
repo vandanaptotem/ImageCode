@@ -717,6 +717,17 @@ $(function () {
         });
     });
     $('.caseBtn .menuBtn-xs').on('click', function () {
+        var sus_name, sus_id;
+        $radio = "";
+        $("#guess_killer_form").find("#suspectListBlock").empty();
+        $.each(suspectNames, function( index, value ) {
+            if(index>0){
+                sus_name = value.split(",")[0];
+                sus_id = value.split(",")[2];
+                $radio = '<input type="radio"  name="suspect_id" value='+sus_id+'>'+sus_name+'<br>';
+                $("#guess_killer_form").find("#suspectListBlock").prepend($radio)
+            }
+        });
         $('.casePanel-xs').animate({opacity: '0'}, '500', function () {
             $('#comments-xs').activatePanel();
             $('#panelTitle-xs').html("Solve It");

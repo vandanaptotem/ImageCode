@@ -1,0 +1,23 @@
+.radio_style
+{
+    color: white;
+    font-size: 25px;
+    padding: 25px;
+
+}
+.radio_box
+{
+
+    width: 400px;
+    height:300px;
+    align:center;
+
+}
+.comment_heading
+{
+    font-size: 30px;
+    color: white;
+    text-shadow: white 0px 0px 30px;
+
+
+}
